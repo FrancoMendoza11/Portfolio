@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <ul class="navbar">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </header>
+
+    <section id="inicio" class="section inicio">
+        <h1>Bienvenido a Mi Portafolio</h1>
+        <p>Descubre mis proyectos, habilidades y más.</p>
+    </section>
+
+    <section id="proyectos" class="section">
+        <h2>Proyectos</h2>
+        <div class="proyectos-container">
+            <div class="proyecto">
+                <h3>Proyecto 1</h3>
+                <p>Descripción breve del proyecto.</p>
+                <a href="#">Ver más</a>
+            </div>
+            <div class="proyecto">
+                <h3>Proyecto 2</h3>
+                <p>Descripción breve del proyecto.</p>
+                <a href="#">Ver más</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="section">
+        <h2>Habilidades</h2>
+        <div class="skills">
+            <div class="skill-category">
+                <h3>Tecnologías Frontend</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tecnologías Backend</h3>
+                <ul>
+                    <li>Java</li>
+                    <li>Go</li>
+                    <li>PostgreSQL</li>
+                    <li>Python</li>
+                    <li>Lenguaje ensamblador</li>
+                    <li>C</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Herramientas</h3>
+                <ul>
+                    <li>Git</li>
+                    <li>GitHub</li>
+                    <li>GitLab</li>
+                    <li>Figma</li>
+                    <li>ProjectLibre</li>
+                    <li>StarUML</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Conocimientos Adicionales</h3>
+                <ul>
+                    <li>Redes</li>
+                    <li>Sistemas Operativos Linux</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Habilidades Blandas</h3>
+                <ul>
+                    <li>Liderazgo</li>
+                    <li>Resiliencia</li>
+                    <li>Comunicación</li>
+                    <li>Trabajo en equipo</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <h2>Contacto</h2>
+        <form>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Mensaje:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
