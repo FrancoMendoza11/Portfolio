@@ -4,57 +4,109 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    color: #334;
+    color: #333;
     background: #f9f9f9; /* Fondo original */
 }
 
-
+/* General Header Styles */
 header {
     background: #333;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 0;
+    transition: background 0.4s;
 }
 
-.navbar {
+.nav-container {
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center;    /* Alinea verticalmente */
-    list-style: none;
-    margin: 0;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
 }
 
-.navbar li {
-    margin: 0 15px; /* Espaciado entre los enlaces */
+/* Logo Styling */
+.nav-brand {
+    font-family: 'Pacifico', cursive; /* Tipografía elegante y destacada */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f9f9f9;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.navbar a {
+/* Navbar Links */
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    transition: transform 0.4s ease-in-out;
+}
+
+.nav-links li a {
     text-decoration: none;
-    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    color: #f9f9f9;
+    font-weight: 500;
     font-size: 1rem;
-    font-weight: bold;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
     transition: background 0.3s, color 0.3s;
 }
 
-.navbar a:hover {
-    background: #0288d1;
-    color: #fff;
+.nav-links li a:hover {
+    background: linear-gradient(135deg, #0288d1, #00bcd4);
+    color: #333;
 }
 
+/* Button for Mobile View */
+.nav-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: #f9f9f9;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.nav-toggle:hover {
+    transform: rotate(90deg);
+}
+
+/* Responsive Navbar */
 @media (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap; /* Permite que los elementos se ajusten */
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        background: #333;
+        padding: 20px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        transform: translateY(-200%);
     }
 
-    .navbar li {
-        margin: 10px;
+    .nav-links.active {
+        transform: translateY(0%);
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-brand {
+        margin: 0 auto 10px auto;
+        text-align: center;
     }
 }
+
 
 .section{
     padding: 50px 20px;
@@ -182,45 +234,65 @@ header {
     left: 0;
 }
 
+/* Estilos del Formulario */
 form {
     max-width: 400px;
-    margin: 0 auto;
-    text-align: left;
-    background: #f9f9f9;
+    margin: 50px auto; /* Centra horizontal y verticalmente */
     padding: 20px;
+    background: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado uniforme entre los elementos */
 }
 
+/* Etiquetas de los Campos */
 form label {
-    display: block;
-    margin: 10px 0 5px;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-form input, form textarea, form button {
+/* Campos de Entrada */
+form input,
+form textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
 }
 
+/* Textarea */
 form textarea {
     resize: none;
+    min-height: 100px;
 }
 
+/* Botón */
 form button {
-    background: #00bcd4;
+    background: linear-gradient(135deg, #00bcd4, #0288d1);
     color: #fff;
     border: none;
-    cursor: pointer;
+    padding: 10px;
+    font-size: 1rem;
     font-weight: bold;
-    transition: background 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
 form button:hover {
-    background: #0288d1;
+    background: linear-gradient(135deg, #0288d1, #00bcd4);
+}
+
+/* Alineación General */
+form * {
+    box-sizing: border-box;
 }
 
 footer {

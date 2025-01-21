@@ -8,12 +8,20 @@
 </head>
 <body>
     <header>
-        <ul class="navbar">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">Franco Mendoza</div>
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    &#9776; <!-- Icono de hamburguesa -->
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <section id="inicio" class="section inicio">
@@ -109,6 +117,8 @@
     <footer>
         <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
     </footer>
+
+    <script src="nav.js"></script>
 
 </body>
 </html>
