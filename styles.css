@@ -147,6 +147,8 @@ header {
 
 
 .section{
+    position: relative; /* Necesario para que el ::before esté relativo a .inicio */
+    z-index: 1; /* Eleva el contenido principal */
     padding: 50px 20px;
     margin: 20px;
     border-radius: 10px;
@@ -190,6 +192,19 @@ header {
     100% {
         transform: translateY(50%);
     }
+}
+
+.skill-category {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s; /* Transiciones necesarias */
+}
+
+.skill-category:hover {
+    transform: translateY(-5px); /* Efecto de desplazamiento */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
 }
 
 
@@ -257,6 +272,17 @@ header {
 .proyecto a:hover {
     text-decoration: underline;
     color: #0288d1;
+}
+
+.proyecto img {
+    max-width: 100%; /* Limita el ancho de la imagen al tamaño del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio blanco debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.proyecto p{
+    text-align: justify;
 }
 
 .skills {
