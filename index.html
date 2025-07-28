@@ -1,435 +1,575 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franco Mendoza - Portfolio</title>
-    <meta name="description" content="Portfolio profesional de Franco Mendoza, Analista Funcional y Desarrollador">
+    <title>Franco Mendoza | Analista Funcional & Desarrollador</title>
+    <meta name="description" content="Portfolio profesional de Franco Mendoza - Especialista en Análisis Funcional, Desarrollo Backend y QA">
+    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos personalizados -->
     <link href="./css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --secondary: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--light);
+            color: #334155;
+        }
+        
+        .dark body {
+            background-color: var(--dark);
+            color: #e2e8f0;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .bg-glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .dark .bg-glass {
+            background: rgba(15, 23, 42, 0.85);
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .underline-animation {
+            position: relative;
+        }
+        
+        .underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.4s ease;
+        }
+        
+        .underline-animation:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .blob {
+            position: absolute;
+            filter: blur(60px);
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: 10%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .blob-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--secondary);
+            bottom: 10%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans">
-    <!-- Header/Navbar -->
-    <header class="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold">Franco Mendoza</h1>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#about" class="hover:text-blue-300 transition">Sobre mí</a></li>
-                    <li><a href="#skills" class="hover:text-blue-300 transition">Habilidades</a></li>
-                    <li><a href="#experience" class="hover:text-blue-300 transition">Experiencia</a></li>
-                    <li><a href="#contact" class="hover:text-blue-300 transition">Contacto</a></li>
-                </ul>
+<body class="transition-colors duration-300">
+    <!-- Efectos de fondo -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <!-- Navbar -->
+    <header class="fixed w-full bg-glass border-b border-slate-200 dark:border-slate-800 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gradient">FM</a>
+            
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                    Sobre mí
+                </a>
+                <a href="#skills" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                    Habilidades
+                </a>
+                <a href="#experience" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                    Experiencia
+                </a>
+                <a href="#contact" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                    Contacto
+                </a>
+                
+                <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm" aria-label="Toggle dark mode">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 text-slate-700 dark:text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden text-amber-500 dark:text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                </button>
             </nav>
-            <button id="menu-btn" class="md:hidden focus:outline-none">
-                <i class="fas fa-bars text-xl"></i>
+
+            <button id="menu-btn" class="md:hidden focus:outline-none" aria-label="Toggle menu">
+                <div class="w-6 flex flex-col space-y-1.5">
+                    <span class="h-0.5 w-full bg-slate-800 dark:bg-slate-200 rounded-full transition-all duration-300"></span>
+                    <span class="h-0.5 w-4/5 bg-slate-800 dark:bg-slate-200 rounded-full ml-auto transition-all duration-300"></span>
+                    <span class="h-0.5 w-full bg-slate-800 dark:bg-slate-200 rounded-full transition-all duration-300"></span>
+                </div>
             </button>
         </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-700 px-4 py-2">
-            <ul class="flex flex-col space-y-3">
-                <li><a href="#about" class="hover:text-blue-300 block">Sobre mí</a></li>
-                <li><a href="#skills" class="hover:text-blue-300 block">Habilidades</a></li>
-                <li><a href="#experience" class="hover:text-blue-300 block">Experiencia</a></li>
-                <li><a href="#contact" class="hover:text-blue-300 block">Contacto</a></li>
-            </ul>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-lg py-4 px-6 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium">
+                    Sobre mí
+                </a>
+                <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium">
+                    Habilidades
+                </a>
+                <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium">
+                    Experiencia
+                </a>
+                <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium">
+                    Contacto
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gray-800 text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Franco Mendoza</h1>
-            <h2 class="text-xl md:text-2xl text-gray-300 mb-6">Analista Funcional | Desarrollo Backend | QA</h2>
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <a href="mailto:francojaviermendoza04@gmail.com" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md flex items-center">
-                    <i class="fas fa-envelope mr-2"></i> Email
-                </a>
-                <a href="tel:1127079848" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md flex items-center">
-                    <i class="fas fa-phone mr-2"></i> Llamar
-                </a>
-                <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md flex items-center">
-                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                </a>
-                <a href="https://github.com/FrancoMendoza11" target="_blank" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-md flex items-center">
-                    <i class="fab fa-github mr-2"></i> GitHub
-                </a>
+    <section class="min-h-screen flex items-center pt-20 pb-16 px-6 relative overflow-hidden">
+        <div class="container mx-auto text-center relative z-10">
+            <div class="animate__animated animate__fadeIn">
+                <span class="inline-block mb-6 px-4 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium animate__animated animate__fadeIn animate__delay-1s">
+                    ¡Bienvenido a mi portfolio!
+                </span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 mt-4 text-gradient animate__animated animate__fadeIn animate__delay-1s">
+                    Franco Mendoza
+                </h1>
+                <h2 class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-1s">
+                    Analista Funcional | Desarrollo Backend | QA
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4 mb-12 animate__animated animate__fadeIn animate__delay-2s">
+                    <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                        Contáctame
+                    </a>
+                    <a href="#experience" class="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-full font-medium shadow hover:shadow-slate-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                        Ver Proyectos
+                    </a>
+                </div>
+                <div class="animate__animated animate__fadeIn animate__delay-3s">
+                    <a href="#about" class="inline-flex items-center text-slate-400 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-emerald-400 transition-colors duration-300">
+                        <span class="mr-2">Explorar más</span>
+                        <i class="fas fa-chevron-down text-sm animate-bounce"></i>
+                    </a>
+                </div>
             </div>
-            <a href="#about" class="inline-block animate-bounce text-gray-400 hover:text-white">
-                <i class="fas fa-chevron-down text-2xl"></i>
-            </a>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate__animated animate__fadeIn animate__delay-4s">
+            <div class="w-8 h-14 border-2 border-slate-400 dark:border-slate-500 rounded-full flex justify-center p-1">
+                <div class="w-2 h-2 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce"></div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Perfil Profesional</h2>
-            <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado en Lic. en Sistemas. 
-                    Formación en programación, redes, sistemas operativos y bases de datos. Enfoque en análisis 
-                    funcional y QA, con experiencia académica en documentación, especificación de requerimientos 
-                    y diseño de pruebas.
-                </p>
-                <p class="text-gray-700 leading-relaxed">
-                    Me destaco por la comunicación, la organización y el trabajo en equipo. Busco mi primera experiencia profesional en IT.
-                </p>
+    <section id="about" class="py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 animate__animated animate__fadeInLeft">
+                    <div class="relative group floating">
+                        <div class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-emerald-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                        <div class="relative bg-white dark:bg-slate-900 rounded-xl p-1 shadow-xl overflow-hidden">
+                            <img src="/home/franco-mendoza/CVs/CV.jpeg" alt="Franco Mendoza - Analista Funcional" class="rounded-lg w-full h-auto">
+                       </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 animate__animated animate__fadeInRight">
+                    <h2 class="text-3xl font-bold mb-6">
+                        <span class="text-gradient">//</span> Sobre mí
+                    </h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                        Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado en Lic. en Sistemas. 
+                        Especializado en análisis funcional y QA, con experiencia académica en documentación, 
+                        especificación de requerimientos y diseño de pruebas.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Nombre:</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Franco Mendoza</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Email:</h3>
+                            <p class="text-slate-600 dark:text-slate-400">francojaviermendoza04@gmail.com</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Ubicación:</h3>
+                            <p class="text-slate-600 dark:text-slate-400">San Miguel, Buenos Aires</p>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Disponibilidad:</h3>
+                            <p class="text-slate-600 dark:text-slate-400">Full-time</p>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                        <span class="mr-2">Descargar CV</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Habilidades Técnicas</h2>
+    <section id="skills" class="py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="text-gradient">#</span> Habilidades Técnicas
+                </h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                    Conjunto de habilidades que he adquirido a lo largo de mi formación académica y proyectos personales
+                </p>
+            </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Skill Card 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tarjeta de habilidad 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700/50 card-hover">
                     <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-search text-blue-600 text-xl"></i>
+                        <div class="w-12 h-12 rounded-lg bg-indigo-500/10 dark:bg-indigo-900/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-search text-indigo-500 dark:text-indigo-400 text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800">Análisis Funcional</h3>
+                        <h3 class="text-xl font-semibold">Análisis Funcional</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <div class="w-2 h-2 rounded-full bg-indigo-500 mr-3"></div>
                             <span>Casos de uso y flujos</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>UML y documentación técnica</span>
+                            <div class="w-2 h-2 rounded-full bg-indigo-500 mr-3"></div>
+                            <span>UML y documentación</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <div class="w-2 h-2 rounded-full bg-indigo-500 mr-3"></div>
                             <span>Requerimientos funcionales</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-indigo-500 mr-3"></div>
+                            <span>Historias de usuario</span>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Skill Card 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                
+                <!-- Tarjeta de habilidad 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700/50 card-hover">
                     <div class="flex items-center mb-4">
-                        <div class="bg-purple-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-bug text-purple-600 text-xl"></i>
+                        <div class="w-12 h-12 rounded-lg bg-emerald-500/10 dark:bg-emerald-900/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-bug text-emerald-500 dark:text-emerald-400 text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800">Testing</h3>
+                        <h3 class="text-xl font-semibold">Testing QA</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 mr-3"></div>
                             <span>Pruebas manuales</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Test cases y reporte de bugs</span>
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 mr-3"></div>
+                            <span>Test cases</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Testing exploratorio</span>
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 mr-3"></div>
+                            <span>Postman para APIs</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Postman para APIs REST</span>
+                            <div class="w-2 h-2 rounded-full bg-emerald-500 mr-3"></div>
+                            <span>Pruebas de regresión</span>
                         </li>
                     </ul>
                 </div>
-
-                <!-- Skill Card 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                
+                <!-- Tarjeta de habilidad 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700/50 card-hover">
                     <div class="flex items-center mb-4">
-                        <div class="bg-green-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-code text-green-600 text-xl"></i>
+                        <div class="w-12 h-12 rounded-lg bg-amber-500/10 dark:bg-amber-900/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-amber-500 dark:text-amber-400 text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-gray-800">Programación</h3>
+                        <h3 class="text-xl font-semibold">Desarrollo Backend</h3>
                     </div>
                     <ul class="space-y-2">
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Java, Python, C</span>
+                            <div class="w-2 h-2 rounded-full bg-amber-500 mr-3"></div>
+                            <span>Java (Spring Boot)</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>HTML, CSS, JavaScript</span>
+                            <div class="w-2 h-2 rounded-full bg-amber-500 mr-3"></div>
+                            <span>Python (Django)</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Tailwind, Django</span>
+                            <div class="w-2 h-2 rounded-full bg-amber-500 mr-3"></div>
+                            <span>Bases de datos SQL</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>POO</span>
+                            <div class="w-2 h-2 rounded-full bg-amber-500 mr-3"></div>
+                            <span>APIs REST</span>
                         </li>
                     </ul>
-                </div>
-
-                <!-- Skill Card 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-database text-yellow-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800">Bases de Datos</h3>
-                    </div>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>PostgreSQL</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>SQL</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>pgAdmin4</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Skill Card 5 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-red-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-tasks text-red-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800">Metodologías</h3>
-                    </div>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Scrum</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Trabajo en equipo</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Comunicación efectiva</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Skill Card 6 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
-                            <i class="fas fa-tools text-indigo-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-800">Herramientas</h3>
-                    </div>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Jira, Trello</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Git, GitHub</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check text-green-500 mr-2"></i>
-                            <span>Draw.io, Excel</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Formación Académica</h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <!-- Education 1 -->
-                <div class="mb-8 pb-8 border-b border-gray-200">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">Tecnicatura Universitaria en Informática</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">2022 – 2025</span>
-                    </div>
-                    <p class="text-gray-700 font-medium mb-2">Universidad Nacional de General Sarmiento (UNGS)</p>
-                    <p class="text-gray-600 mb-3">Promedio: 8,13</p>
-                </div>
-
-                <!-- Education 2 -->
-                <div class="mb-8 pb-8 border-b border-gray-200">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-blue-600">Licenciatura en Sistemas</h3>
-                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">En curso</span>
-                    </div>
-                    <p class="text-gray-700 font-medium mb-2">UNGS</p>
-                    <p class="text-gray-600">22/36 materias aprobadas</p>
-                </div>
-
-                <!-- Certifications -->
-                <div>
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Certificaciones</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-semibold text-gray-800 mb-1">Desarrollador Web Inicial</h4>
-                            <p class="text-gray-600 text-sm">UTN (2022)</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-semibold text-gray-800 mb-1">Workshop Cómputo Paralelo</h4>
-                            <p class="text-gray-600 text-sm">UNGS (2025)</p>
-                        </div>
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-semibold text-gray-800 mb-1">Inglés avanzado</h4>
-                            <p class="text-gray-600 text-sm">Certificación Cambridge (2021)</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Experiencia Académica</h2>
+    <!-- Experience Section -->
+<section id="experience" class="py-20 bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">
+                <span class="text-gradient">##</span> Proyectos Académicos<span class="text-gradient">/</span>Personales Destacados
+            </h2>
+            <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                Desarrollo de sistemas completos con metodologías ágiles y tecnologías modernas
+            </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto space-y-8">
+            <!-- HealthFirst -->
+            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700/50 card-hover">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold">HealthFirst - Gestión Inteligente de Licencias</h3>
+                        <a href="https://github.com/GonzaloKintal/HealthFirst.git" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-1">
+                            <i class="fab fa-github mr-1"></i> Ver repositorio
+                        </a>
+                    </div>
+                    <span class="inline-block mt-2 md:mt-0 px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium">Proyecto Integrador</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 mb-4">
+                    Sistema de gestión de licencias laborales con IA que optimiza solicitudes, aprobaciones y seguimiento. 
+                    Integra machine learning para análisis de anomalías, detección de riesgos de salud laboral y validación 
+                    automática de certificados médicos.
+                </p>
+                
+                <div class="mb-4">
+                    <h4 class="font-medium text-slate-700 dark:text-slate-300 mb-2">Mi rol en el proyecto:</h4>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1">
+                        <li>Scrum Master: Coordinación del equipo y seguimiento de sprints</li>
+                        <li>Analista Funcional: Relevamiento de requerimientos y documentación UML</li>
+                        <li>QA Lead: Diseño de casos de prueba y ejecución de testing manual</li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Python</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Django</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">AWS</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Machine Learning</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">JWT Auth</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Scrum</span>
+                </div>
+            </div>
             
-            <div class="max-w-4xl mx-auto space-y-8">
-                <!-- Experience 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-gray-800">Scrum Master / Analista Funcional</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">HealthFirst</span>
+            <!-- E-commerce UNGS -->
+            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700/50 card-hover">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold">UNGS Marketplace - Plataforma E-commerce</h3>
+                        <a href="https://github.com/FrancoMendoza11/UNGS-Marketplace.git" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-1">
+                            <i class="fab fa-github mr-1"></i> Ver repositorio
+                        </a>
                     </div>
-                    <p class="text-gray-700 mb-4">
-                        Sistema con IA para gestión de licencias médicas. Relevamiento, modelado de procesos, documentación funcional y liderazgo ágil. También diseñé y ejecuté pruebas funcionales.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Scrum</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Análisis Funcional</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Testing</span>
-                    </div>
+                    <span class="inline-block mt-2 md:mt-0 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-300 text-sm font-medium">Desarrollo Backend</span>
                 </div>
-
-                <!-- Experience 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-gray-800">Analista Funcional</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">LibroClick</span>
-                    </div>
-                    <p class="text-gray-700 mb-4">
-                        Especificación funcional completa de un e-commerce de libros. Incluyó casos de uso, flujos, UML y diseño de pruebas funcionales para módulos clave como registro, catálogo, compra y carrito.
-                    </p>
-                    <a href="#" class="text-blue-600 hover:underline inline-flex items-center">
-                        Ver Documento FRD
-                        <i class="fas fa-external-link-alt ml-1 text-sm"></i>
-                    </a>
-                    <div class="mt-3 flex flex-wrap gap-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">UML</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Casos de Uso</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">E-commerce</span>
-                    </div>
+                <p class="text-slate-600 dark:text-slate-300 mb-4">
+                    Plataforma de comercio electrónico para la comunidad universitaria con catálogo de productos, 
+                    carrito de compras, pasarela de pagos y sistema de reseñas. Arquitectura basada en microservicios.
+                </p>
+                
+                <div class="mb-4">
+                    <h4 class="font-medium text-slate-700 dark:text-slate-300 mb-2">Mi rol en el proyecto:</h4>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1">
+                        <li>Desarrollador Backend: Implementación de API REST</li>
+                        <li>Diseñador de Base de Datos: Modelado relacional en MySQL</li>
+                        <li>Integrador: Conexión con servicios externos de pago</li>
+                    </ul>
                 </div>
-
-                <!-- Experience 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
-                        <h3 class="text-xl font-semibold text-gray-800">Desarrollador Java</h3>
-                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Juego 2048</span>
+                
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Java</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Spring Boot</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">MySQL</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">JWT</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Microservicios</span>
+                </div>
+            </div>
+            
+            <!-- Sistema de Tickets -->
+            <div class="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700/50 card-hover">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold">TicketFlow - Gestión de Incidencias</h3>
+                        <a href="https://github.com/FrancoMendoza11/TicketFlow.git" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-1">
+                            <i class="fab fa-github mr-1"></i> Ver repositorio
+                        </a>
                     </div>
-                    <p class="text-gray-700 mb-4">
-                        Implementé el clásico juego "2048" con interfaz gráfica, lógica de movimiento y combinación de números, generación aleatoria de nuevos valores y sistema de puntajes. El proyecto combina desarrollo frontend y backend para ofrecer una experiencia fluida y funcional.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Java</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">POO</span>
-                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Juego</span>
-                    </div>
+                    <span class="inline-block mt-2 md:mt-0 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-300 text-sm font-medium">Full Stack</span>
+                </div>
+                <p class="text-slate-600 dark:text-slate-300 mb-4">
+                    Sistema de tickets para gestión de incidencias técnicas con categorización por prioridad, 
+                    asignación automática a técnicos, seguimiento en tiempo real y generación de métricas.
+                </p>
+                
+                <div class="mb-4">
+                    <h4 class="font-medium text-slate-700 dark:text-slate-300 mb-2">Mi rol en el proyecto:</h4>
+                    <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-1">
+                        <li>Analista Funcional: Diagramas de casos de uso y flujos</li>
+                        <li>Desarrollador Full Stack: Frontend y lógica de asignación</li>
+                        <li>Tester: Pruebas de regresión y E2E</li>
+                    </ul>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">React</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Node.js</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">MongoDB</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Socket.IO</span>
+                    <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Jest</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Contacto</h2>
+    <section id="contact" class="py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">
+                    <span class="text-gradient">/</span> Contacto
+                </h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                    ¿Interesado en trabajar juntos? ¡Envíame un mensaje!
+                </p>
+            </div>
             
             <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Contact Info -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Información de Contacto</h3>
+                <!-- Info de contacto -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm card-hover">
+                    <h3 class="text-xl font-semibold mb-6">Información de Contacto</h3>
                     
                     <div class="space-y-4">
                         <div class="flex items-start">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            <div class="w-10 h-10 rounded-full bg-indigo-500/10 dark:bg-indigo-900/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-indigo-500 dark:text-indigo-400"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Ubicación</h4>
-                                <p class="text-gray-600">San Miguel, Buenos Aires, Argentina</p>
+                                <h4 class="font-medium">Ubicación</h4>
+                                <p class="text-slate-600 dark:text-slate-400">San Miguel, Buenos Aires, Argentina</p>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-green-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-envelope text-green-600"></i>
+                            <div class="w-10 h-10 rounded-full bg-emerald-500/10 dark:bg-emerald-900/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-emerald-500 dark:text-emerald-400"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Email</h4>
-                                <p class="text-gray-600">francojaviermendoza04@gmail.com</p>
+                                <h4 class="font-medium">Email</h4>
+                                <p class="text-slate-600 dark:text-slate-400">francojaviermendoza04@gmail.com</p>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-purple-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-phone text-purple-600"></i>
+                            <div class="w-10 h-10 rounded-full bg-amber-500/10 dark:bg-amber-900/20 flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-amber-500 dark:text-amber-400"></i>
                             </div>
                             <div>
-                                <h4 class="font-medium text-gray-800">Teléfono</h4>
-                                <p class="text-gray-600">1127079848</p>
+                                <h4 class="font-medium">Teléfono</h4>
+                                <p class="text-slate-600 dark:text-slate-400">+54 11 2707-9848</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="mt-8">
-                        <h4 class="font-medium text-gray-800 mb-4">Redes Sociales</h4>
+                        <h4 class="font-medium mb-4">Redes Sociales</h4>
                         <div class="flex space-x-4">
-                            <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                            <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="https://github.com/FrancoMendoza11" target="_blank" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition">
+                            <a href="https://github.com/FrancoMendoza11" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center hover:bg-slate-700 transition-colors duration-300">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Contact Form -->
-                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Envíame un mensaje</h3>
+                <!-- Formulario de contacto -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm card-hover">
+                    <h3 class="text-xl font-semibold mb-6">Envíame un mensaje</h3>
                     <form id="contact-form" class="space-y-4">
                         <div>
-                            <label for="name" class="block text-gray-700 mb-1">Nombre</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <label for="name" class="block mb-1 text-slate-600 dark:text-slate-400">Nombre</label>
+                            <input type="text" id="name" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-700/50 dark:text-white transition-colors duration-300">
                         </div>
                         
                         <div>
-                            <label for="email" class="block text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <label for="email" class="block mb-1 text-slate-600 dark:text-slate-400">Email</label>
+                            <input type="email" id="email" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-700/50 dark:text-white transition-colors duration-300">
                         </div>
                         
                         <div>
-                            <label for="subject" class="block text-gray-700 mb-1">Asunto</label>
-                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+			     <label for="message" class="block mb-1 text-slate-600 dark:text-slate-400">Mensaje</label>
+			     <textarea 
+					id="message" 
+					rows="4"
+					required 
+					class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-700/50 dark:text-white transition-colors duration-300 resize-none min-h-[120px] overflow-y-auto"
+			     ></textarea>
                         </div>
                         
-                        <div>
-                            <label for="message" class="block text-gray-700 mb-1">Mensaje</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-lg font-medium shadow hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
                             Enviar Mensaje
                         </button>
                     </form>
@@ -439,31 +579,27 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-4">© 2023 Franco Mendoza. Todos los derechos reservados.</p>
+    <footer class="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800/50 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4 text-slate-600 dark:text-slate-400">© 2025 Franco Mendoza. Todos los derechos reservados.</p>
             <div class="flex justify-center space-x-6">
-                <a href="mailto:francojaviermendoza04@gmail.com" class="hover:text-blue-300">
+                <a href="mailto:francojaviermendoza04@gmail.com" class="text-slate-500 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">
                     <i class="fas fa-envelope"></i>
                 </a>
-                <a href="tel:1127079848" class="hover:text-blue-300">
+                <a href="tel:1127079848" class="text-slate-500 dark:text-slate-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors duration-300">
                     <i class="fas fa-phone"></i>
                 </a>
-                <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="hover:text-blue-300">
+                <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://github.com/FrancoMendoza11" target="_blank" class="hover:text-blue-300">
+                <a href="https://github.com/FrancoMendoza11" target="_blank" class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white transition-colors duration-300">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hidden">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
+    <!-- Scripts -->
     <script src="./js/main.js"></script>
 </body>
 </html>

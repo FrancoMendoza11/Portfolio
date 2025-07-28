@@ -1,0 +1,102 @@
+/* Estilos base */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Animaciones personalizadas */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Componentes personalizados */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.skill-card {
+    position: relative;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card:hover::before {
+    opacity: 1;
+}
+
+.skill-card-inner {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.dark .skill-card-inner {
+    background: rgba(15, 23, 42, 0.5);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.experience-card {
+    position: relative;
+}
+
+.experience-card-inner {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.dark .experience-card-inner {
+    background: rgba(15, 23, 42, 0.5);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.experience-card:hover .experience-card-inner {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Transiciones para modo oscuro */
+html.transition-colors,
+html.transition-colors *,
+html.transition-colors *::before,
+html.transition-colors *::after {
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease !important;
+}
