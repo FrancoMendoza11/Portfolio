@@ -1,168 +1,469 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="responsive.css">
+    <title>Franco Mendoza - Portfolio</title>
+    <meta name="description" content="Portfolio profesional de Franco Mendoza, Analista Funcional y Desarrollador">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-brand">Franco Mendoza</div>
-                <button class="nav-toggle" aria-label="Abrir menú">
-                    &#9776; <!-- Icono de hamburguesa -->
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#habilidades">Habilidades</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+<body class="bg-gray-50 font-sans">
+    <!-- Header/Navbar -->
+    <header class="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold">Franco Mendoza</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-blue-300 transition">Sobre mí</a></li>
+                    <li><a href="#skills" class="hover:text-blue-300 transition">Habilidades</a></li>
+                    <li><a href="#experience" class="hover:text-blue-300 transition">Experiencia</a></li>
+                    <li><a href="#contact" class="hover:text-blue-300 transition">Contacto</a></li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+            <button id="menu-btn" class="md:hidden focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-700 px-4 py-2">
+            <ul class="flex flex-col space-y-3">
+                <li><a href="#about" class="hover:text-blue-300 block">Sobre mí</a></li>
+                <li><a href="#skills" class="hover:text-blue-300 block">Habilidades</a></li>
+                <li><a href="#experience" class="hover:text-blue-300 block">Experiencia</a></li>
+                <li><a href="#contact" class="hover:text-blue-300 block">Contacto</a></li>
+            </ul>
+        </div>
     </header>
 
-    <section class="inicio" id="inicio">
-        <div class="hero-content">
-            <h1>Hola, soy Franco Mendoza,</h1>
-            <h1 class="typeanimate">Técnico Universitario en Informática &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🤓👆</h1>
-            <p>Apasionado por la tecnología, desarrollo de software y resolución de problemas complejos.</p>
-            <div class="hero-buttons">
-                <a href="https://github.com/FrancoMendoza11" class="btn" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.2 1.87.85 2.33.65.07-.52.28-.85.51-1.04-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.11 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.91.08 2.11.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                    </svg>
-                    GitHub
+    <!-- Hero Section -->
+    <section class="bg-gray-800 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Franco Mendoza</h1>
+            <h2 class="text-xl md:text-2xl text-gray-300 mb-6">Analista Funcional | Desarrollo Backend | QA</h2>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <a href="mailto:francojaviermendoza04@gmail.com" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md flex items-center">
+                    <i class="fas fa-envelope mr-2"></i> Email
                 </a>
-                <a href="https://linkedin.com/in/franco-mendoza-779138258" class="btn" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M0 1.146C0 .513.324 0 .725 0h14.55c.401 0 .725.513.725 1.146v13.708c0 .633-.324 1.146-.725 1.146H.725A.723.723 0 0 1 0 14.854V1.146zm4.943 12.248V6.169H3.219v7.225h1.724zM4.081 5.209c.551 0 .894-.372.894-.833 0-.469-.343-.833-.876-.833-.533 0-.894.364-.894.833 0 .46.343.833.862.833zm4.908 8.185h1.723V9.359c0-.193.014-.387.072-.523.158-.387.519-.788 1.124-.788.794 0 1.112.595 1.112 1.469v4.847h1.724V9.286c0-2.12-1.13-3.104-2.635-3.104-1.219 0-1.75.665-2.047 1.137h.029V6.169H8.989c.021.459 0 7.225 0 7.225z"/>
-                    </svg>
-                    LinkedIn
+                <a href="tel:1127079848" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-md flex items-center">
+                    <i class="fas fa-phone mr-2"></i> Llamar
                 </a>
-                <a href="cv/FrancoMendozaCV.pdf" class="btn" download>
-                    Descargar CV
+                <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md flex items-center">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
+                <a href="https://github.com/FrancoMendoza11" target="_blank" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-md flex items-center">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+            </div>
+            <a href="#about" class="inline-block animate-bounce text-gray-400 hover:text-white">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Perfil Profesional</h2>
+            <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-md">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado en Lic. en Sistemas. 
+                    Formación en programación, redes, sistemas operativos y bases de datos. Enfoque en análisis 
+                    funcional y QA, con experiencia académica en documentación, especificación de requerimientos 
+                    y diseño de pruebas.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Me destaco por la comunicación, la organización y el trabajo en equipo. Busco mi primera experiencia profesional en IT.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="proyectos" class="section">
-        <h2>Proyectos</h2>
-        <div class="proyectos-container">
-            <div class="proyecto">
-                <h3>2048</h3>
-                <img src="images/proyecto1.png" alt="Ilustración del Proyecto 1">
-                <p>Este proyecto consiste en la implementación del juego "2048" como parte del Trabajo Práctico Grupal N°1 para la materia Programación III en la Universidad Nacional de General Sarmiento.</p>
-                <a href="https://github.com/JoaquinTonizzo/tp1-programacion3" target="_blank">Ver más</a>
-            </div>
-            <div class="proyecto">
-                <h3>Diseño de regiones</h3>
-                <img src="images/proyecto2.png" alt="Ilustración del Proyecto 2">
-                <p>Este proyecto consiste en la implementación de una aplicación para diseñar regiones de un país basada en un grafo de provincias Trabajo Práctico Grupal N°2 para la materia Programación III.</p>
-                <a href="https://github.com/JoaquinTonizzo/tp2-programacion3" target="_blank">Ver más</a>
-            </div>
-            <div class="proyecto">
-                <h3>Algoritmo Goloso</h3>
-                <img src="images/proyecto3.png" alt="Ilustración del Proyecto 3">
-                <p>Este proyecto consiste en la implementación de un algoritmo goloso para resolver el problema de la clique de peso máximo en un grafo dado. Trabajo Práctico Grupal N°3 para la materia Programación III.</p>
-                <a href="https://github.com/JoaquinTonizzo/tp3-programacion3" target="_blank">Ver más</a>
-            </div>
-            <div class="proyecto">
-                <h3>Proyecto 4</h3>
-                <img src="images/proyecto4.png" alt="Ilustración del Proyecto 4">
-                <p>Descripción breve del proyecto. Este proyecto tiene como objetivo...</p>
-                <a href="https://github.com/FrancoMendoza11/proyecto4" target="_blank">Ver más</a>
-            </div>
-            <div class="proyecto">
-                <h3>Proyecto 5</h3>
-                <img src="images/proyecto5.png" alt="Ilustración del Proyecto 5">
-                <p>Descripción breve del proyecto. Este proyecto tiene como objetivo...</p>
-                <a href="https://github.com/FrancoMendoza11/proyecto5" target="_blank">Ver más</a>
-            </div>
-            <div class="proyecto">
-                <h3>Proyecto 6</h3>
-                <img src="images/proyecto6.png" alt="Ilustración del Proyecto 6">
-                <p>Descripción breve del proyecto. Este proyecto tiene como objetivo...</p>
-                <a href="https://github.com/FrancoMendoza11/proyecto6" target="_blank">Ver más</a>
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Habilidades Técnicas</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Skill Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-search text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Análisis Funcional</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Casos de uso y flujos</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>UML y documentación técnica</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Requerimientos funcionales</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-bug text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Testing</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Pruebas manuales</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Test cases y reporte de bugs</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Testing exploratorio</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Postman para APIs REST</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-code text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Programación</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Java, Python, C</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>HTML, CSS, JavaScript</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Tailwind, Django</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>POO</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-database text-yellow-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Bases de Datos</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>PostgreSQL</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>SQL</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>pgAdmin4</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-tasks text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Metodologías</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Scrum</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Trabajo en equipo</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Comunicación efectiva</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Card 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-indigo-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-tools text-indigo-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Herramientas</h3>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Jira, Trello</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Git, GitHub</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>Draw.io, Excel</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="habilidades" class="section">
-        <h2>Habilidades</h2>
-        <div class="skills">
-            <div class="skill-category">
-                <h3>Tecnologías Frontend</h3>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Tecnologías Backend</h3>
-                <ul>
-                    <li>Java</li>
-                    <li>Go</li>
-                    <li>PostgreSQL</li>
-                    <li>Python</li>
-                    <li>Lenguaje ensamblador</li>
-                    <li>C</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Herramientas</h3>
-                <ul>
-                    <li>Git</li>
-                    <li>Figma</li>
-                    <li>ProjectLibre</li>
-                    <li>StarUML</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Conocimientos Adicionales</h3>
-                <ul>
-                    <li>Redes</li>
-                    <li>Sistemas Operativos Linux</li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h3>Habilidades Blandas</h3>
-                <ul>
-                    <li>Liderazgo</li>
-                    <li>Resiliencia</li>
-                    <li>Comunicación</li>
-                    <li>Trabajo en equipo</li>
-                </ul>
+    <!-- Education Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Formación Académica</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <!-- Education 1 -->
+                <div class="mb-8 pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">Tecnicatura Universitaria en Informática</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">2022 – 2025</span>
+                    </div>
+                    <p class="text-gray-700 font-medium mb-2">Universidad Nacional de General Sarmiento (UNGS)</p>
+                    <p class="text-gray-600 mb-3">Promedio: 8,13</p>
+                </div>
+
+                <!-- Education 2 -->
+                <div class="mb-8 pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-blue-600">Licenciatura en Sistemas</h3>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">En curso</span>
+                    </div>
+                    <p class="text-gray-700 font-medium mb-2">UNGS</p>
+                    <p class="text-gray-600">22/36 materias aprobadas</p>
+                </div>
+
+                <!-- Certifications -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Certificaciones</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-1">Desarrollador Web Inicial</h4>
+                            <p class="text-gray-600 text-sm">UTN (2022)</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-1">Workshop Cómputo Paralelo</h4>
+                            <p class="text-gray-600 text-sm">UNGS (2025)</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-1">Inglés avanzado</h4>
+                            <p class="text-gray-600 text-sm">Certificación Cambridge (2021)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contacto" class="section">
-        <h2>Contacto</h2>
-        <form>
-            <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" required>
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Experiencia Académica</h2>
             
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Mensaje:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-            
-            <button type="submit">Enviar</button>
-        </form>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Experience 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Scrum Master / Analista Funcional</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">HealthFirst</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Sistema con IA para gestión de licencias médicas. Relevamiento, modelado de procesos, documentación funcional y liderazgo ágil. También diseñé y ejecuté pruebas funcionales.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Scrum</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Análisis Funcional</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Testing</span>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Analista Funcional</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">LibroClick</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Especificación funcional completa de un e-commerce de libros. Incluyó casos de uso, flujos, UML y diseño de pruebas funcionales para módulos clave como registro, catálogo, compra y carrito.
+                    </p>
+                    <a href="#" class="text-blue-600 hover:underline inline-flex items-center">
+                        Ver Documento FRD
+                        <i class="fas fa-external-link-alt ml-1 text-sm"></i>
+                    </a>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">UML</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Casos de Uso</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">E-commerce</span>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Desarrollador Java</h3>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Juego 2048</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">
+                        Implementé el clásico juego "2048" con interfaz gráfica, lógica de movimiento y combinación de números, generación aleatoria de nuevos valores y sistema de puntajes. El proyecto combina desarrollo frontend y backend para ofrecer una experiencia fluida y funcional.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Java</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">POO</span>
+                        <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Juego</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Franco Mendoza. Todos los derechos reservados.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center text-gray-800">Contacto</h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Contact Info -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Información de Contacto</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Ubicación</h4>
+                                <p class="text-gray-600">San Miguel, Buenos Aires, Argentina</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Email</h4>
+                                <p class="text-gray-600">francojaviermendoza04@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Teléfono</h4>
+                                <p class="text-gray-600">1127079848</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium text-gray-800 mb-4">Redes Sociales</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/FrancoMendoza11" target="_blank" class="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Envíame un mensaje</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-1">Nombre</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-gray-700 mb-1">Asunto</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-1">Mensaje</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">© 2023 Franco Mendoza. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:francojaviermendoza04@gmail.com" class="hover:text-blue-300">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:1127079848" class="hover:text-blue-300">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="https://linkedin.com/in/franco-mendoza-779138258" target="_blank" class="hover:text-blue-300">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/FrancoMendoza11" target="_blank" class="hover:text-blue-300">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
     </footer>
 
-    <script src="nav.js"></script>
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <script src="./js/main.js"></script>
 </body>
 </html>
