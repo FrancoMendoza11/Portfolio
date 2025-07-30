@@ -100,3 +100,54 @@ html.transition-colors *::before,
 html.transition-colors *::after {
     transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease !important;
 }
+
+/* Mejoras para modo oscuro */
+.dark .text-slate-600,
+.dark .text-slate-500,
+.dark .text-slate-400 {
+    color: #cbd5e1; /* Un gris más claro para mejor contraste */
+}
+
+.dark .bg-slate-800,
+.dark .bg-slate-700,
+.dark .bg-slate-900 {
+    background-color: rgba(15, 23, 42, 0.9); /* Fondo más opaco */
+}
+
+.dark .border-slate-700,
+.dark .border-slate-800 {
+    border-color: rgba(226, 232, 240, 0.1); /* Bordes más visibles */
+}
+
+/* Ajustes específicos para tarjetas */
+.dark .skill-card-inner,
+.dark .experience-card-inner {
+    background: rgba(15, 23, 42, 0.8);
+    border-color: rgba(226, 232, 240, 0.15);
+}
+
+/* Mejora de contraste en textos */
+.dark .text-slate-300 {
+    color: #e2e8f0;
+}
+
+.dark .text-slate-200 {
+    color: #f1f5f9;
+}
+
+/* Ajuste para los badges de tecnologías */
+.dark .bg-slate-700 {
+    background-color: rgba(30, 41, 59, 0.7);
+}
+
+.dark .text-slate-200 {
+    color: #f8fafc;
+}
+
+.dark .bg-white {
+    background-color: #1e293b !important; /* equivale a slate-800 */
+}
+
+.dark .bg-slate-50 {
+    background-color: #0f172a !important; /* equivale a slate-900 */
+}
