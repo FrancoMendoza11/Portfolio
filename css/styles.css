@@ -105,18 +105,18 @@ html.transition-colors *::after {
 .dark .text-slate-600,
 .dark .text-slate-500,
 .dark .text-slate-400 {
-    color: #cbd5e1; /* Un gris más claro para mejor contraste */
+    color: #cbd5e1; 
 }
 
 .dark .bg-slate-800,
 .dark .bg-slate-700,
 .dark .bg-slate-900 {
-    background-color: rgba(15, 23, 42, 0.9); /* Fondo más opaco */
+    background-color: rgba(15, 23, 42, 0.9); 
 }
 
 .dark .border-slate-700,
 .dark .border-slate-800 {
-    border-color: rgba(226, 232, 240, 0.1); /* Bordes más visibles */
+    border-color: rgba(226, 232, 240, 0.1);
 }
 
 /* Ajustes específicos para tarjetas */
@@ -151,3 +151,8 @@ html.transition-colors *::after {
 .dark .bg-slate-50 {
     background-color: #0f172a !important; /* equivale a slate-900 */
 }
+
+html.dark #menu-btn span {
+    background-color: white !important;
+}
+
