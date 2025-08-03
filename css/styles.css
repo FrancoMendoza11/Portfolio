@@ -1,16 +1,16 @@
-/* Estilos base */
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     scroll-behavior: smooth;
 }
 
-/* Animaciones personalizadas */
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-/* Componentes personalizados */
+
 .nav-link {
     position: relative;
     padding-bottom: 4px;
@@ -101,7 +101,7 @@ html.transition-colors *::after {
     transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease !important;
 }
 
-/* Mejoras para modo oscuro */
+
 .dark .text-slate-600,
 .dark .text-slate-500,
 .dark .text-slate-400 {
@@ -119,14 +119,13 @@ html.transition-colors *::after {
     border-color: rgba(226, 232, 240, 0.1);
 }
 
-/* Ajustes específicos para tarjetas */
+
 .dark .skill-card-inner,
 .dark .experience-card-inner {
     background: rgba(15, 23, 42, 0.8);
     border-color: rgba(226, 232, 240, 0.15);
 }
 
-/* Mejora de contraste en textos */
 .dark .text-slate-300 {
     color: #e2e8f0;
 }
@@ -135,7 +134,7 @@ html.transition-colors *::after {
     color: #f1f5f9;
 }
 
-/* Ajuste para los badges de tecnologías */
+
 .dark .bg-slate-700 {
     background-color: rgba(30, 41, 59, 0.7);
 }
@@ -156,9 +155,7 @@ html.dark #menu-btn span {
     background-color: white !important;
 }
 
-/* Agrega esto al final de tu sección <style> */
 
-/* Ajustes para el botón de tema en mobile */
 @media (max-width: 767px) {
   #theme-toggle {
     position: fixed;
@@ -185,7 +182,7 @@ html.dark #menu-btn span {
   }
 }
 
-/* Mejoras para el botón hamburguesa en ambos modos */
+
 #menu-btn {
   transition: all 0.3s ease;
 }
@@ -200,10 +197,10 @@ html.dark #menu-btn span {
 }
 
 #menu-btn:hover span {
-  width: 100% !important; /* Efecto hover completo */
+  width: 100% !important; 
 }
 
-/* Asegurar visibilidad del menú móvil */
+
 #mobile-menu {
   background-color: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid #e2e8f0;
@@ -232,25 +229,25 @@ html.dark #menu-btn span {
   display: none;
 }
 
-/* Agrega esto a tu sección de estilos */
+
 @media (max-width: 640px) {
-  /* Ajustes específicos para el texto del email */
+ 
   .contact-info p.text-slate-600.dark\\:text-slate-400 {
-    word-break: break-all; /* Rompe palabras largas */
-    overflow-wrap: anywhere; /* Permite saltos en cualquier punto */
+    word-break: break-all;
+    overflow-wrap: anywhere;
     font-size: 0.875rem; 
-    line-height: 1.5; /* Mejor espaciado */
-    padding: 0 8px; /* Pequeño padding lateral */
+    line-height: 1.5;
+    padding: 0 8px; 
   }
 
-  /* Contenedor flex para alinear ícono y texto */
+
   .contact-info .flex.items-start {
-    align-items: center; /* Mejor alineación vertical */
+    align-items: center;
   }
 
 
   .contact-info .flex.items-start .w-10 {
-    min-width: 40px; /* Tamaño consistente */
+    min-width: 40px; 
   }
 
 
