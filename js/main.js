@@ -101,23 +101,148 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         document.body.classList.remove('opacity-0');
     }, 100);
-});
 
-// ============ Efecto de cursor personalizado (opcional) ============
-const cursor = document.createElement('div');
-cursor.id = 'custom-cursor';
-document.body.appendChild(cursor);
+    // ============ Cambio de idioma ============
+    const languageToggleBtn = document.getElementById('language-toggle');
+    const languageIcon = document.getElementById('language-icon');
 
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-});
+    // Textos traducidos
+    const translations = {
+        'en': {
+            'title': 'Franco Mendoza | Portfolio',
+            'welcome': 'Welcome to my portfolio!',
+            'role': 'Functional Analyst | Backend Development | QA',
+            'contact': 'Contact me',
+            'view_projects': 'View Projects',
+            'explore': 'Explore more',
+            'about': 'About me',
+            'about_text': 'University Technician in Computer Science (UNGS, 2025) and advanced student in Systems Engineering. Specialized in functional analysis and QA, with academic experience in documentation, requirement specification and test design.',
+            'name': 'Name:',
+            'email': 'Email:',
+            'location': 'Location:',
+            'download_cv': 'Download CV',
+            'skills': 'Technical Skills',
+            'skills_text': 'Set of skills I have acquired throughout my academic training and personal projects',
+            'experience': 'Academic/Personal Projects',
+            'contact_title': 'Contact',
+            'contact_text': 'Interested in working together? Send me a message!',
+            'contact_info': 'Contact Information',
+            'send_message': 'Send me a message',
+            'message': 'Message',
+            'your_name': 'Your name',
+            'your_email': 'Your email',
+            'write_message': 'Write your message...',
+            'send': 'Send Message',
+            'copyright': '© 2025 Franco Mendoza. All rights reserved.',
+            'about_nav': 'About',
+            'skills_nav': 'Skills',
+            'experience_nav': 'Experience',
+            'contact_nav': 'Contact'
+        },
+        'es': {
+            'title': 'Franco Mendoza | Portfolio',
+            'welcome': '¡Bienvenido a mi portfolio!',
+            'role': 'Analista Funcional | Desarrollo Backend | QA',
+            'contact': 'Contactame',
+            'view_projects': 'Ver Proyectos',
+            'explore': 'Explorar más',
+            'about': 'Sobre mí',
+            'about_text': 'Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado en Lic. en Sistemas. Especializado en análisis funcional y QA, con experiencia académica en documentación, especificación de requerimientos y diseño de pruebas.',
+            'name': 'Nombre:',
+            'email': 'Email:',
+            'location': 'Ubicación:',
+            'availability': 'Disponibilidad:',
+            'download_cv': 'Descargar CV',
+            'skills': 'Habilidades Técnicas',
+            'skills_text': 'Conjunto de habilidades que he adquirido a lo largo de mi formación académica y proyectos personales',
+            'experience': 'Proyectos Académicos/Personales Destacados',
+            'contact_title': 'Contacto',
+            'contact_text': '¿Interesado en trabajar juntos? ¡Enviame un mensaje!',
+            'contact_info': 'Información de Contacto',
+            'send_message': 'Envíame un mensaje',
+            'message': 'Mensaje',
+            'your_name': 'Tu nombre',
+            'your_email': 'Tu email',
+            'write_message': 'Escribí tu mensaje...',
+            'send': 'Enviar Mensaje',
+            'copyright': '© 2025 Franco Mendoza. Todos los derechos reservados.',
+            'about_nav': 'Sobre mí',
+            'skills_nav': 'Habilidades',
+            'experience_nav': 'Experiencia',
+            'contact_nav': 'Contacto'
+        }
+    };
 
-document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursor.classList.add('scale-150', 'bg-opacity-30');
+    // Verificar preferencia al cargar
+    const currentLanguage = localStorage.getItem('language') || 'es';
+    document.documentElement.lang = currentLanguage;
+    languageIcon.textContent = currentLanguage.toUpperCase();
+
+    // Manejar el cambio de idioma
+    languageToggleBtn.addEventListener('click', function() {
+        const newLanguage = document.documentElement.lang === 'es' ? 'en' : 'es';
+        document.documentElement.lang = newLanguage;
+        localStorage.setItem('language', newLanguage);
+        languageIcon.textContent = newLanguage.toUpperCase();
+        updateTexts(newLanguage);
     });
-    el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('scale-150', 'bg-opacity-30');
-    });
+
+    // Función para actualizar todos los textos
+    function updateTexts(language) {
+        const langData = translations[language];
+        
+        // Actualizar todos los elementos con data-translate
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (langData[key]) {
+                element.textContent = langData[key];
+            }
+        });
+        
+        // Actualizar elementos especiales
+        document.querySelector('title').textContent = langData.title;
+        
+        // Botones de la sección Hero
+        const heroButtons = document.querySelectorAll('.hero a');
+        if (heroButtons[0]) heroButtons[0].textContent = langData.contact;
+        if (heroButtons[1]) heroButtons[1].textContent = langData.view_projects;
+        
+        // Texto de explorar más
+        const exploreText = document.querySelector('.hero a[href="#about"] span');
+        if (exploreText) exploreText.textContent = langData.explore;
+        
+        // Títulos de secciones
+        const aboutTitle = document.querySelector('#about h2');
+        if (aboutTitle) aboutTitle.innerHTML = `<span class="text-gradient">//</span> ${langData.about}`;
+        
+        const skillsTitle = document.querySelector('#skills h2');
+        if (skillsTitle) skillsTitle.innerHTML = `<span class="text-gradient">#</span> ${langData.skills}`;
+        
+        const experienceTitle = document.querySelector('#experience h2');
+        if (experienceTitle) experienceTitle.innerHTML = `<span class="text-gradient">##</span> ${langData.experience}<span class="text-gradient">/</span>`;
+        
+        const contactTitle = document.querySelector('#contact h2');
+        if (contactTitle) contactTitle.innerHTML = `<span class="text-gradient">/</span> ${langData.contact_title}`;
+        
+        // Placeholders del formulario
+        const nameInput = document.querySelector('input[name="name"]');
+        if (nameInput) nameInput.placeholder = langData.your_name;
+        
+        const emailInput = document.querySelector('input[name="email"]');
+        if (emailInput) emailInput.placeholder = langData.your_email;
+        
+        const messageTextarea = document.querySelector('textarea[name="message"]');
+        if (messageTextarea) messageTextarea.placeholder = langData.write_message;
+        
+        // Botón de enviar
+        const submitButton = document.querySelector('#contact-form button');
+        if (submitButton) submitButton.textContent = langData.send;
+        
+        // Footer
+        const footerText = document.querySelector('footer p');
+        if (footerText) footerText.textContent = langData.copyright;
+    }
+
+    // Inicializar textos al cargar
+    updateTexts(currentLanguage);
 });

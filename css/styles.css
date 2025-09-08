@@ -280,3 +280,15 @@ html.dark #menu-btn span {
   }
 }
 
+#language-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#language-icon {
+    font-weight: 600;
+}
+

@@ -56,7 +56,7 @@
         .card-hover {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
-        
+        n
         .card-hover:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -129,18 +129,23 @@
             <a href="#" class="text-2xl font-bold text-gradient">FM</a>
             
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                <a href="#about" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium" data-translate="about_nav"> 
                     Sobre mí
                 </a>
-                <a href="#skills" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                <a href="#skills" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium" data-translate="skills_nav">
                     Habilidades
                 </a>
-                <a href="#experience" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                <a href="#experience" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium" data-translate="experience_nav">
                     Experiencia
                 </a>
-                <a href="#contact" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium">
+                <a href="#contact" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium" data-translate="contact_nav">
                     Contacto
                 </a>
+
+
+		<button id="language-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm ml-2" aria-label="Toggle language">
+		    <span id="language-icon" class="text-sm font-medium">ES</span>
+		</button>
                 
                 <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm" aria-label="Toggle dark mode">
                     <svg id="theme-toggle-dark-icon" class="w-5 h-5 text-slate-700 dark:text-amber-300" fill="currentColor" viewBox="0 0 20 20">
@@ -150,6 +155,8 @@
                         <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
                 </button>
+
+
             </nav>
 
 		<button id="menu-btn" class="md:hidden p-2 bg-slate-100 dark:bg-slate-700 rounded-lg shadow-sm focus:outline-none" aria-label="Toggle menu">
@@ -185,25 +192,25 @@
     <section class="min-h-screen flex items-center pt-20 pb-16 px-6 relative overflow-hidden">
         <div class="container mx-auto text-center relative z-10">
             <div class="animate__animated animate__fadeIn">
-                <span class="inline-block mb-6 px-4 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium animate__animated animate__fadeIn animate__delay-1s">
+                <span class="inline-block mb-6 px-4 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium animate__animated animate__fadeIn animate__delay-1s" data-translate="welcome">
                     ¡Bienvenido a mi portfolio!
                 </span>
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 mt-4 text-gradient animate__animated animate__fadeIn animate__delay-1s">
                     Franco Mendoza
                 </h1>
-                <h2 class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-1s">
+                <h2 class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-1s" data-translate="role">
                     Analista Funcional | Desarrollo Backend | QA
                 </h2>
                 <div class="flex flex-wrap justify-center gap-4 mb-12 animate__animated animate__fadeIn animate__delay-2s">
-                    <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                    <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl" data-translate="contact">
                         Contactame
                     </a>
-                    <a href="#experience" class="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-full font-medium shadow hover:shadow-slate-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl">
+                    <a href="#experience" class="px-8 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 rounded-full font-medium shadow hover:shadow-slate-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl" data-translate="view_projects">
                         Ver Proyectos
                     </a>
                 </div>
                 <div class="animate__animated animate__fadeIn animate__delay-3s">
-                    <a href="#about" class="inline-flex items-center text-slate-400 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-emerald-400 transition-colors duration-300">
+                    <a href="#about" class="inline-flex items-center text-slate-400 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-emerald-400 transition-colors duration-300" data-translate="explore">
                         <span class="mr-2">Explorar más</span>
                         <i class="fas fa-chevron-down text-sm animate-bounce"></i>
                     </a>
@@ -232,16 +239,16 @@
                 </div>
                 <div class="lg:w-1/2 animate__animated animate__fadeInRight">
                     <h2 class="text-3xl font-bold mb-6">
-                        <span class="text-gradient">//</span> Sobre mí
+                        <span class="text-gradient" data-translate="about">//</span> Sobre mí
                     </h2>
-                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed" data-translate="about_text">
                         Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado en Lic. en Sistemas. 
                         Especializado en análisis funcional y QA, con experiencia académica en documentación, 
                         especificación de requerimientos y diseño de pruebas.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mb-8">
                         <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
-                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Nombre:</h3>
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2" data-translate="name">Nombre:</h3>
                             <p class="text-slate-600 dark:text-slate-400">Franco Mendoza</p>
                         </div>
                         <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
@@ -249,17 +256,17 @@
                             <p class="text-slate-600 dark:text-slate-400">francojaviermendoza04@gmail.com</p>
                         </div>
                         <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
-                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Ubicación:</h3>
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2" data-translate="location">Ubicación:</h3>
                             <p class="text-slate-600 dark:text-slate-400">San Miguel, Buenos Aires</p>
                         </div>
                         <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover">
-                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Disponibilidad:</h3>
+                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2" data-translate="availability">Disponibilidad:</h3>
                             <p class="text-slate-600 dark:text-slate-400">Full-time</p>
                         </div>
                     </div>
 			<a href="./CV/CV_Franco_Mendoza.pdf" target="_blank" rel="noopener noreferrer"
 			   class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
-			    <span class="mr-2">Descargar CV</span>
+			    <span class="mr-2" data-translate="download_cv">Descargar CV</span>
 			    <i class="fas fa-download"></i>
 			</a>
                 </div>
@@ -274,7 +281,7 @@
                 <h2 class="text-3xl font-bold mb-4">
                     <span class="text-gradient">#</span> Habilidades Técnicas
                 </h2>
-                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto" data-translate="skills_text">
                     Conjunto de habilidades que he adquirido a lo largo de mi formación académica y proyectos personales
                 </p>
             </div>
@@ -562,10 +569,10 @@
                 
                 <!-- Formulario de contacto -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm card-hover">
-                    <h3 class="text-xl font-semibold mb-6">Envíame un mensaje</h3>
+                    <h3 class="text-xl font-semibold mb-6" data-translate="send_message">Envíame un mensaje</h3>
                     <form action="https://formspree.io/f/mqallyoa" method="POST" id="contact-form" class="space-y-4">
 			    <div>
-				<label for="name" class="block mb-1 text-slate-600 dark:text-slate-400">Nombre</label>
+				<label for="name" class="block mb-1 text-slate-600 dark:text-slate-400" data-translate="your_name">Nombre</label>
 				<input 
 				    type="text" 
 				    id="name" 
@@ -597,7 +604,7 @@
 			    </div>
 
 			    <div>
-				<label for="message" class="block mb-1 text-slate-600 dark:text-slate-400">Mensaje</label>
+				<label for="message" class="block mb-1 text-slate-600 dark:text-slate-400" data-translate="message">Mensaje</label>
 				<textarea 
 				    id="message" 
 				    name="message"
@@ -612,7 +619,7 @@
 				></textarea>
 			    </div>
 
-			    <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-lg font-medium shadow hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
+			    <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-indigo-500 to-emerald-500 text-white rounded-lg font-medium shadow hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1" data-translate="send">
 				Enviar Mensaje
 			    </button>
 		  </form>
