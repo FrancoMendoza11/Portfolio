@@ -1,4 +1,34 @@
+// ============ Animación de fondo ============
+
+function createGridBackground() {
+    const container = document.createElement('div');
+    container.className = 'grid-background';
+    
+    // Crear líneas horizontales
+    for (let i = 0; i < 20; i++) {
+        const line = document.createElement('div');
+        line.className = 'grid-line horizontal';
+        line.style.top = `${(i * 5)}%`;
+        line.style.animationDelay = `${(i * 0.2)}s`;
+        container.appendChild(line);
+    }
+    
+    // Crear líneas verticales
+    for (let i = 0; i < 20; i++) {
+        const line = document.createElement('div');
+        line.className = 'grid-line vertical';
+        line.style.left = `${(i * 5)}%`;
+        line.style.animationDelay = `${(i * 0.2) + 0.5}s`;
+        container.appendChild(line);
+    }
+    
+    document.body.appendChild(container);
+}
+
+
 document.addEventListener('DOMContentLoaded', function() {
+
+     createGridBackground();      // Opción 3: Grid animado
     // ============ Modo oscuro/claro ============
     const themeToggleBtn = document.getElementById('theme-toggle');
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -106,6 +136,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const languageToggleBtn = document.getElementById('language-toggle');
     const languageIcon = document.getElementById('language-icon');
 
+    // Crear overlay para la animación
+    const createLanguageOverlay = () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'language-transition-overlay';
+        overlay.innerHTML = `
+            <div class="language-transition-content">
+                <div class="language-transition-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div class="language-transition-text" id="transition-text"></div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+        return overlay;
+    };
+
+    const languageOverlay = createLanguageOverlay();
+    const transitionText = document.getElementById('transition-text');
+
     // Textos traducidos
     const translations = {
         'en': {
@@ -120,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'name': 'Name:',
             'email': 'Email:',
             'location': 'Location:',
+            'availability': 'Availability:',
             'download_cv': 'Download CV',
             'skills': 'Technical Skills',
             'skills_text': 'Set of skills I have acquired throughout my academic training and personal projects',
@@ -137,7 +187,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'about_nav': 'About',
             'skills_nav': 'Skills',
             'experience_nav': 'Experience',
-            'contact_nav': 'Contact'
+            'contact_nav': 'Contact',
+            'transition_text': 'Changing to English'
         },
         'es': {
             'title': 'Franco Mendoza | Portfolio',
@@ -169,7 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'about_nav': 'Sobre mí',
             'skills_nav': 'Habilidades',
             'experience_nav': 'Experiencia',
-            'contact_nav': 'Contacto'
+            'contact_nav': 'Contacto',
+            'transition_text': 'Cambiando a Español'
         }
     };
 
@@ -181,10 +233,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Manejar el cambio de idioma
     languageToggleBtn.addEventListener('click', function() {
         const newLanguage = document.documentElement.lang === 'es' ? 'en' : 'es';
-        document.documentElement.lang = newLanguage;
-        localStorage.setItem('language', newLanguage);
-        languageIcon.textContent = newLanguage.toUpperCase();
-        updateTexts(newLanguage);
+        
+        // Mostrar animación
+        transitionText.textContent = translations[newLanguage].transition_text;
+        languageOverlay.classList.add('active');
+        
+        // Crear efecto de onda en el botón
+        const wave = document.createElement('div');
+        wave.className = 'wave-effect';
+        const rect = languageToggleBtn.getBoundingClientRect();
+        wave.style.width = wave.style.height = `${Math.max(rect.width, rect.height)}px`;
+        wave.style.left = `${rect.left + rect.width/2 - wave.offsetWidth/2}px`;
+        wave.style.top = `${rect.top + rect.height/2 - wave.offsetHeight/2}px`;
+        document.body.appendChild(wave);
+        
+        // Eliminar el efecto de onda después de la animación
+        setTimeout(() => {
+            document.body.removeChild(wave);
+        }, 1000);
+        
+        // Cambiar idioma después de un breve delay para que se vea la animación
+        setTimeout(() => {
+            document.documentElement.lang = newLanguage;
+            localStorage.setItem('language', newLanguage);
+            languageIcon.textContent = newLanguage.toUpperCase();
+            updateTexts(newLanguage);
+            
+            // Ocultar animación
+            languageOverlay.classList.remove('active');
+        }, 800);
     });
 
     // Función para actualizar todos los textos
@@ -246,3 +323,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar textos al cargar
     updateTexts(currentLanguage);
 });
+
