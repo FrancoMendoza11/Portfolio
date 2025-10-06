@@ -797,7 +797,8 @@
     <!-- Navbar Flotante -->
     <header class="fixed w-full bg-glass border-b border-slate-200 dark:border-slate-800 z-50 theme-transition navbar-floating">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gradient bounce-in">FM</a>
+            <!-- CORREGIDO: Logo lleva al inicio -->
+            <a href="#hero" class="text-2xl font-bold text-gradient bounce-in">FM</a>
             
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="about_nav"> 
@@ -869,14 +870,17 @@
                     Analista Funcional | Desarrollo Backend | QA ---> 🤓👆
                 </h2>
                 <div class="flex flex-wrap justify-center gap-4 mb-12 animate__animated animate__fadeIn animate__delay-2s margintop">
+                    <!-- CORRECTO: Lleva a #contact -->
                     <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl language-transition" data-translate="contact">
                         Contactame
                     </a>
+                    <!-- CORRECTO: Lleva a #experience -->
                     <a href="#experience" class="px-8 py-3 btn-view-projects border rounded-full font-medium shadow hover:shadow-slate-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl language-transition card-hover" data-translate="view_projects ">
                         Ver Proyectos
                     </a>
                 </div>
                 <div class="animate__animated animate__fadeIn animate__delay-3s">
+                    <!-- CORRECTO: Lleva a #about -->
                     <a href="#about" class="inline-flex items-center text-slate-400 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-blue-400 transition-colors duration-300 language-transition" data-translate="explore">
                         <span class="mr-2">Explorar más</span>
                         <i class="fas fa-chevron-down text-sm animate-bounce"></i>
@@ -931,6 +935,7 @@
                             <p class="text-slate-600 dark:text-slate-400">Full-time</p>
                         </div>
                     </div>
+                    <!-- CORRECTO: Enlace externo al CV -->
                     <a href="./CV/CV_Franco_Mendoza.pdf" target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
                         <span class="mr-2 language-transition" data-translate="download_cv">Descargar CV</span>
@@ -942,7 +947,7 @@
     </section>
 
     <!-- Skills Section -->
-
+    <section id="skills" class="py-20 relative overflow-hidden">
         <div class="container mx-auto px-6 margintop">
             <div class="text-center mb-16 page-transition">
                 <h2 class="text-3xl font-bold mb-4 section-title">
@@ -1055,10 +1060,10 @@
                 </div>
             </div>
         </div>
-
+    </section>
 
     <!-- Experience Section -->
-   
+    <section id="experience" class="py-20 relative overflow-hidden">
         <div class="container mx-auto px-6 margintop">
             <div class="text-center mb-16 page-transition">
                 <h2 class="text-3xl font-bold mb-4 section-title text-slate-800 dark:text-white">
@@ -1179,7 +1184,8 @@
                                     </span>
                                 </div>
                             </div>
-                            <a href="#" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-2 md:mt-0">
+                            <!-- CORREGIDO: Agregar URL real del repositorio -->
+                            <a href="https://github.com/FrancoMendoza11/TPUNGS-Tester" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-2 md:mt-0">
                                 <i class="fab fa-github mr-1"></i> Repository
                             </a>
                         </div>
@@ -1198,10 +1204,10 @@
                 </div>
             </div>
         </div>
-
+    </section>
 
     <!-- Contact Section -->
-
+    <section id="contact" class="py-20 relative overflow-hidden">
         <div class="container mx-auto px-6 relative z-10 margintop">
             <div class="text-center mb-16 page-transition">
                 <h2 class="text-3xl font-bold mb-4 section-title">
@@ -1329,14 +1335,14 @@
                 </div>
             </div>
         </div>
-
+    </section>
 
     <!-- Footer -->
     <footer class="py-8 bg-slate-800 dark:bg-slate-950 text-slate-300 theme-transition">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="language-transition" data-translate="copyright">© 2024 Franco Mendoza. Todos los derechos reservados.</p>
+                    <p class="language-transition" data-translate="copyright">© 2025 Franco Mendoza. Todos los derechos reservados.</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="https://github.com/FrancoMendoza11" target="_blank" class="footer-link">
