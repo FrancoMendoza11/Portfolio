@@ -5,770 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franco Mendoza | Portfolio</title>
     <meta name="description" content="Professional portfolio of Franco Mendoza - Specialist in Functional Analysis, Backend Development and QA">
+    
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- AOS (Animate On Scroll) -->
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-light: #6366f1;
-            --primary-dark: #4338ca;
-            --secondary: #0ea5e9;
-            --secondary-light: #38bdf8;
-            --accent: #8b5cf6;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
-            --light: #f8fafc;
-            --gray-light: #f1f5f9;
-            --gray: #64748b;
-            --success: #10b981;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            scroll-behavior: smooth;
-            background-color: var(--light);
-            color: #334155;
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-        
-        .dark body {
-            background-color: var(--dark);
-            color: #e2e8f0;
-        }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .bg-gradient {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-        
-        .bg-glass {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .dark .bg-glass {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .underline-animation {
-            position: relative;
-        }
-        
-        .underline-animation::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transition: width 0.4s ease;
-        }
-        
-        .underline-animation:hover::after {
-            width: 100%;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* Grid background effect */
-        .grid-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            opacity: 0.9;
-        }
-        
-        .dark .grid-bg {
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
-        }
-        
-        /* Floating navbar */
-        .navbar-floating {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .dark .navbar-floating {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 60%;
-            height: 3px;
-            bottom: -10px;
-            left: 20%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-        
-        .success-message {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .success-message.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .page-transition {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        .page-transition.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .language-transition {
-            transition: opacity 0.3s ease;
-        }
-        
-        .theme-transition {
-            transition: all 0.5s ease;
-        }
-        
-        /* Profile image styling */
-        .profile-image-container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: auto;
-            border-radius: 1rem;
-            object-fit: cover;
-        }
-        
-        /* Dark mode color corrections */
-        .dark .text-slate-600 {
-            color: #cbd5e1;
-        }
-        
-        .dark .text-slate-500 {
-            color: #94a3b8;
-        }
-        
-        .dark .text-slate-400 {
-            color: #94a3b8;
-        }
-        
-        .dark .border-slate-200 {
-            border-color: #334155;
-        }
-        
-        .dark .bg-slate-50 {
-            background-color: #1e293b;
-        }
-        
-        .dark .bg-slate-100 {
-            background-color: #1e293b;
-        }
-        
-        /* Improved contrast for dark mode */
-        .dark .text-slate-800 {
-            color: #f1f5f9;
-        }
-        
-        .dark .text-slate-700 {
-            color: #e2e8f0;
-        }
-        
-        /* Improved card styling for dark mode */
-        .dark-card {
-            background-color: #1e293b;
-            border-color: #334155;
-            color: #e2e8f0;
-        }
-        
-        /* Improved form styling for dark mode */
-        .dark .form-input {
-            background-color: #1e293b;
-            border-color: #475569;
-            color: #e2e8f0;
-        }
-        
-        .dark .form-input:focus {
-            border-color: #6366f1;
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-        }
-        
-        /* Improved button styling for dark mode */
-        .dark .btn-secondary {
-            background-color: #334155;
-            color: #e2e8f0;
-            border-color: #475569;
-        }
-        
-        .dark .btn-secondary:hover {
-            background-color: #475569;
-        }
-        
-        /* Timeline styling for experience */
-        .timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background-color: #e2e8f0;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
-        }
-        
-        .dark .timeline::after {
-            background-color: #334155;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: var(--primary);
-            border: 4px solid white;
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .dark .timeline-item::after {
-            border-color: var(--dark);
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
-        
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        
-        .dark .timeline-content {
-            background-color: #1e293b;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-        }
-        
-        @media screen and (max-width: 768px) {
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-item::after {
-                left: 21px;
-            }
-            
-            .timeline-item:nth-child(odd)::after {
-                right: auto;
-            }
-        }
-        
-        /* Footer improvements */
-        .footer-link {
-            color: #cbd5e1;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-link:hover {
-            color: blue;
-        }
-        
-        .dark .footer-link {
-            color: #94a3b8;
-        }
-        
-        .dark .footer-link:hover {
-            color: blue;
-        }
-        
-        /* Button improvements for dark mode */
-        .btn-view-projects {
-            background-color: white;
-            border-color: #e2e8f0;
-            color: #334155;
-        }
-        
-        .dark .btn-view-projects {
-            background-color: #334155;
-            border-color: #475569;
-            color: #e2e8f0;
-        }
-        
-        .dark .btn-view-projects:hover {
-            background-color: #475569;
-        }
-        
-        /* Skills cards improvements */
-        .skills-card {
-            background-color: white;
-            border-color: #e2e8f0;
-        }
-        
-        .dark .skills-card {
-            background-color: #1e293b;
-            border-color: #334155;
-        }
-        
-        /* Contact section improvements */
-        .contact-card {
-            background-color: #f8fafc;
-        }
-        
-        .dark .contact-card {
-            background-color: #1e293b;
-        }
-        
-        /* New animations */
-        .pulse-slow {
-            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        .slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-        
-        .slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-        
-        .zoom-in {
-            animation: zoomIn 0.8s ease-out forwards;
-        }
-        
-        .bounce-in {
-            animation: bounceIn 1s ease-out forwards;
-        }
-        
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .fade-in-down {
-            animation: fadeInDown 0.8s ease-out forwards;
-        }
-        
-        .rotate-in {
-            animation: rotateIn 0.8s ease-out forwards;
-        }
-        
-        .typewriter {
-            overflow: hidden;
-            border-right: .15em solid var(--primary);
-            white-space: nowrap;
-            margin: 0 auto;
-            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary); }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                transform: translateX(-100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes zoomIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes bounceIn {
-            0% {
-                transform: scale(0.3);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                transform: translateY(-30px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes rotateIn {
-            from {
-                transform: rotate(-180deg) scale(0.5);
-                opacity: 0;
-            }
-            to {
-                transform: rotate(0) scale(1);
-                opacity: 1;
-            }
-        }
-        
-        /* Blob animations */
-        .blob {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(40px);
-            z-index: -1;
-        }
-        
-        .blob-1 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, var(--primary-light), var(--accent));
-            top: 10%;
-            left: 5%;
-            animation: blob-move-1 25s infinite alternate;
-            opacity: 0.2;
-        }
-        
-        .blob-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, var(--secondary-light), var(--primary));
-            bottom: 20%;
-            right: 10%;
-            animation: blob-move-2 20s infinite alternate;
-            opacity: 0.15;
-        }
-        
-        .blob-3 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
-            top: 60%;
-            left: 60%;
-            animation: blob-move-3 30s infinite alternate;
-            opacity: 0.1;
-        }
-        
-        @keyframes blob-move-1 {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-        }
-        
-        @keyframes blob-move-2 {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(-40px, 30px) scale(1.05);
-            }
-            66% {
-                transform: translate(20px, -20px) scale(0.95);
-            }
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-        }
-        
-        @keyframes blob-move-3 {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            33% {
-                transform: translate(25px, 25px) scale(1.1);
-            }
-            66% {
-                transform: translate(-15px, -15px) scale(0.9);
-            }
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-        }
-        
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            z-index: 100;
-        }
-        
-        .scroll-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #cbd5e1;
-            margin: 15px 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .scroll-dot.active {
-            background-color: var(--primary);
-            transform: scale(1.5);
-        }
-        
-        .dark .scroll-dot {
-            background-color: #475569;
-        }
-        
-        .dark .scroll-dot.active {
-            background-color: var(--primary-light);
-        }
-        
-        /* Loading animation */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-        
-        .dark .loading-screen {
-            background-color: var(--dark);
-        }
-        
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 5px solid rgba(79, 70, 229, 0.2);
-            border-radius: 50%;
-            border-top-color: var(--primary);
-            animation: spin 1s ease-in-out infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* Parallax effect */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        
-        /* Text shadow animation */
-        .text-shadow-animate {
-            text-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
-            animation: text-shadow-pulse 2s infinite alternate;
-        }
-        
-        @keyframes text-shadow-pulse {
-            from {
-                text-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
-            }
-            to {
-                text-shadow: 0 0 20px rgba(79, 70, 229, 0.8), 0 0 30px rgba(79, 70, 229, 0.6);
-            }
-        }
-        
-        /* Gradient border animation */
-        .gradient-border {
-            position: relative;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
-            border: 2px solid transparent;
-        }
-        
-        .dark .gradient-border {
-            background: linear-gradient(#1e293b, #1e293b) padding-box,
-                        linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
-        }
-        
-        .gradient-border-animated {
-            position: relative;
-            background: linear-gradient(white, white) padding-box;
-            border: 2px solid transparent;
-            background-clip: padding-box;
-        }
-        
-        .gradient-border-animated::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary-light), var(--secondary-light));
-            border-radius: inherit;
-            z-index: -1;
-            animation: border-rotate 3s linear infinite;
-        }
-        
-        .dark .gradient-border-animated {
-            background: linear-gradient(#1e293b, #1e293b) padding-box;
-        }
-        
-        @keyframes border-rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-       .margintop {
-	  margin-top:5vh;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 fill=%22%234f46e5%22/><text x=%2232%22 y=%2242%22 font-size=%2236%22 font-family=%22Inter,%20sans-serif%22 fill=%22white%22 text-anchor=%22middle%22 font-weight=%22700%22>FM</text></svg>">
 </head>
 <body class="theme-transition">
@@ -791,13 +40,14 @@
         <div class="scroll-dot" data-section="about"></div>
         <div class="scroll-dot" data-section="skills"></div>
         <div class="scroll-dot" data-section="experience"></div>
+        <div class="scroll-dot" data-section="projects"></div>
         <div class="scroll-dot" data-section="contact"></div>
     </div>
     
     <!-- Navbar Flotante -->
     <header class="fixed w-full bg-glass border-b border-slate-200 dark:border-slate-800 z-50 theme-transition navbar-floating">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- CORREGIDO: Logo lleva al inicio -->
+            <!-- Logo -->
             <a href="#hero" class="text-2xl font-bold text-gradient bounce-in">FM</a>
             
             <nav class="hidden md:flex items-center space-x-8">
@@ -809,6 +59,9 @@
                 </a>
                 <a href="#experience" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="experience_nav">
                     Experiencia
+                </a>
+                <a href="#projects" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="projects_nav">
+                    Proyectos
                 </a>
                 <a href="#contact" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="contact_nav">
                     Contacto
@@ -849,6 +102,9 @@
                 <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="experience_nav">
                     Experiencia
                 </a>
+                <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="projects_nav">
+                    Proyectos
+                </a>
                 <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="contact_nav">
                     Contacto
                 </a>
@@ -867,20 +123,17 @@
                     Franco Mendoza
                 </h1>
                 <h2 class="text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-8 max-w-2xl mx-auto animate__animated animate__fadeIn animate__delay-1s language-transition typewriter" data-translate="role">
-                    Analista Funcional | Desarrollo Backend | QA ---> 🤓👆
+                    Desarrollador Fullstack | Analista Funcional | QA
                 </h2>
                 <div class="flex flex-wrap justify-center gap-4 mb-12 animate__animated animate__fadeIn animate__delay-2s margintop">
-                    <!-- CORRECTO: Lleva a #contact -->
                     <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl language-transition" data-translate="contact">
                         Contactame
                     </a>
-                    <!-- CORRECTO: Lleva a #experience -->
-                    <a href="#experience" class="px-8 py-3 btn-view-projects border rounded-full font-medium shadow hover:shadow-slate-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl language-transition card-hover" data-translate="view_projects ">
+                    <a href="#projects" class="px-8 py-3 btn-view-projects border rounded-full font-medium shadow hover:shadow-slate-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl language-transition card-hover" data-translate="view_projects">
                         Ver Proyectos
                     </a>
                 </div>
                 <div class="animate__animated animate__fadeIn animate__delay-3s">
-                    <!-- CORRECTO: Lleva a #about -->
                     <a href="#about" class="inline-flex items-center text-slate-400 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-blue-400 transition-colors duration-300 language-transition" data-translate="explore">
                         <span class="mr-2">Explorar más</span>
                         <i class="fas fa-chevron-down text-sm animate-bounce"></i>
@@ -904,7 +157,7 @@
                     <div class="relative group floating profile-image-container">
                         <div class="absolute -inset-2 bg-gradient-to-r from-indigo-400 to-blue-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
                         <div class="relative bg-white dark:bg-slate-900 rounded-xl p-1 shadow-xl overflow-hidden card-hover">
-                            <img src="./images/CV.jpeg" alt="Franco Mendoza - Analista Funcional" class="profile-image">
+                            <img src="./images/CV.jpeg" alt="Franco Mendoza - Desarrollador Fullstack" class="profile-image">
                        </div>
                     </div>
                 </div>
@@ -917,25 +170,42 @@
                         Experiencia en desarrollo y testing de software, análisis de requerimientos y gestión de proyectos ágiles. 
                         Conocimientos en Power BI, bases de datos y herramientas de análisis.
                     </p>
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover theme-transition zoom-in">
-                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2 language-transition" data-translate="name">Nombre:</h3>
-                            <p class="text-slate-600 dark:text-slate-400">Franco Mendoza</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover theme-transition zoom-in" style="animation-delay: 0.1s">
-                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2">Email:</h3>
-                            <p class="text-slate-600 dark:text-slate-400">francojaviermendoza04@gmail.com</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover theme-transition zoom-in" style="animation-delay: 0.2s">
-                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2 language-transition" data-translate="location">Ubicación:</h3>
-                            <p class="text-slate-600 dark:text-slate-400">San Miguel, Buenos Aires</p>
-                        </div>
-                        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover theme-transition zoom-in" style="animation-delay: 0.3s">
-                            <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-2 language-transition" data-translate="availability">Disponibilidad:</h3>
-                            <p class="text-slate-600 dark:text-slate-400">Full-time</p>
+                    
+                    <!-- Formación Académica -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-4 text-xl">Formación Académica</h3>
+                        <div class="space-y-4">
+                            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover theme-transition">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800 dark:text-slate-200">Licenciatura en Sistemas</h4>
+                                        <p class="text-slate-600 dark:text-slate-400">Universidad Nacional de General Sarmiento</p>
+                                    </div>
+                                    <span class="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm px-3 py-1 rounded-full">En curso (22/36 materias)</span>
+                                </div>
+                            </div>
+                            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800/50 card-hover theme-transition">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-semibold text-slate-800 dark:text-slate-200">Tecnicatura Universitaria en Informática</h4>
+                                        <p class="text-slate-600 dark:text-slate-400">Universidad Nacional de General Sarmiento</p>
+                                    </div>
+                                    <span class="bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 text-sm px-3 py-1 rounded-full">2022 – 2025 | Promedio: 8,13/10</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- CORRECTO: Enlace externo al CV -->
+                    
+                    <!-- Certificaciones -->
+                    <div class="mb-8">
+                        <h3 class="font-bold text-slate-800 dark:text-slate-200 mb-4 text-xl">Certificaciones</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full text-sm">Workshop de Cómputo Paralelo (UNGS, 2025)</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full text-sm">Desarrollador Web Inicial (UTN, 2022)</span>
+                            <span class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full text-sm">Inglés B2 (Cambridge)</span>
+                        </div>
+                    </div>
+                    
                     <a href="./CV/CV_Franco_Mendoza.pdf" target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-full font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1">
                         <span class="mr-2 language-transition" data-translate="download_cv">Descargar CV</span>
@@ -1006,19 +276,19 @@
                     <ul class="space-y-2">
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.3s">
                             <div class="w-2 h-2 rounded-full bg-blue-500 mr-3"></div>
-                            <span class="language-transition" data-translate="testing_item1">Testing manual: test cases, regresión, validación</span>
+                            <span class="language-translation" data-translate="testing_item1">Testing manual: test cases, regresión, validación</span>
                         </li>
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.4s">
                             <div class="w-2 h-2 rounded-full bg-blue-500 mr-3"></div>
-                            <span class="language-transition" data-translate="testing_item2">Reporte y gestión de bugs (Jira, Trello)</span>
+                            <span class="language-translation" data-translate="testing_item2">Reporte y gestión de bugs (Jira, Trello)</span>
                         </li>
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.5s">
                             <div class="w-2 h-2 rounded-full bg-blue-500 mr-3"></div>
-                            <span class="language-transition" data-translate="testing_item3">Testing exploratorio y automatizado (Playwright, JUnit)</span>
+                            <span class="language-translation" data-translate="testing_item3">Testing exploratorio y automatizado (Playwright, JUnit)</span>
                         </li>
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.6s">
                             <div class="w-2 h-2 rounded-full bg-blue-500 mr-3"></div>
-                            <span class="language-transition" data-translate="testing_item4">Pruebas funcionales de APIs con Postman</span>
+                            <span class="language-translation" data-translate="testing_item4">Pruebas funcionales de APIs con Postman</span>
                         </li>
                     </ul>
                 </div>
@@ -1034,27 +304,19 @@
                     <ul class="space-y-2">
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.5s">
                             <div class="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                            <span class="language-transition" data-translate="dev_item1">Lenguajes: Java, Python, C, JavaScript, HTML5, CSS3</span>
+                            <span>Java, Spring Boot, JavaScript, TypeScript</span>
                         </li>
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.6s">
                             <div class="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                            <span class="language-transition" data-translate="dev_item2">Frameworks: React, Node.js, Django, Tailwind CSS</span>
+                            <span>Node.js, Express, React, Angular</span>
                         </li>
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.7s">
                             <div class="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                            <span class="language-transition" data-translate="dev_item3">Bases de datos: PostgreSQL, MongoDB, SQL</span>
+                            <span>MySQL, PostgreSQL, MongoDB</span>
                         </li>
                         <li class="flex items-center fade-in-up" style="animation-delay: 0.8s">
                             <div class="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                            <span class="language-transition" data-translate="dev_item4">Testing: Playwright, JUnit, Postman</span>
-                        </li>
-                        <li class="flex items-center fade-in-up" style="animation-delay: 0.9s">
-                            <div class="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                            <span class="language-transition" data-translate="dev_item5">Herramientas: Git, Power BI, Excel, Trello, Jira</span>
-                        </li>
-                        <li class="flex items-center fade-in-up" style="animation-delay: 1s">
-                            <div class="w-2 h-2 rounded-full bg-purple-500 mr-3"></div>
-                            <span class="language-transition" data-translate="dev_item6">Sistemas operativos: Linux, Windows</span>
+                            <span>Git, GitHub, Docker, Power BI</span>
                         </li>
                     </ul>
                 </div>
@@ -1062,274 +324,259 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Sección de Experiencia Profesional -->
     <section id="experience" class="py-20 relative overflow-hidden">
-        <div class="container mx-auto px-6 margintop">
-            <div class="text-center mb-16 page-transition">
-                <h2 class="text-3xl font-bold mb-4 section-title text-slate-800 dark:text-white">
-                    <span class="text-gradient">##</span> <span class="language-transition" data-translate="experience_title">Experiencia Profesional y Académica</span>
-                </h2>
-            </div>
-            
-            <!-- Timeline -->
-            <div class="timeline">
-                <!-- Novara Soft -->
-                <div class="timeline-item page-transition">
-                    <div class="timeline-content card-hover bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">Novara Soft</h3>
-                                <div class="flex items-center mt-1 text-sm text-slate-500 dark:text-slate-400">
-                                    <span>Agosto 2025 – Actualidad</span>
-                                </div>
-                                <div class="mt-2">
-                                    <span class="inline-block px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-sm font-medium">
-                                        Co-fundador y Desarrollador Fullstack
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-4">
-                            <li>Desarrollo de aplicaciones web: requerimientos, diseño, implementación y testing</li>
-                            <li>Optimización de UX, rendimiento y documentación técnica</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">React</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Node.js</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">MongoDB</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Tailwind</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- HealthFirst -->
-                <div class="timeline-item page-transition">
-                    <div class="timeline-content card-hover bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">HealthFirst – Sistema de Gestión de Licencias con ML</h3>
-                                <div class="flex items-center mt-1 text-sm text-slate-500 dark:text-slate-400">
-                                    <span>UNGS</span>
-                                </div>
-                                <div class="mt-2">
-                                    <span class="inline-block px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-sm font-medium">
-                                        Scrum Master y QA/Testing
-                                    </span>
-                                </div>
-                            </div>
-                            <a href="https://github.com/GonzaloKintal/HealthFirst.git" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-2 md:mt-0">
-                                <i class="fab fa-github mr-1"></i> Repository
-                            </a>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-4">
-                            <li>Liderazgo de equipo ágil de 8 integrantes, coordinación de sprints</li>
-                            <li>Testing automatizado con Playwright (frontend) y UnitTest (backend)</li>
-                            <li>Testing de APIs con Postman y validación de modelos ML</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Django</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">React</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">PostgreSQL</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Metabase</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Scikit-learn</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- LibroClick -->
-                <div class="timeline-item page-transition">
-                    <div class="timeline-content card-hover bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">LibroClick – E-commerce de Libros</h3>
-                                <div class="flex items-center mt-1 text-sm text-slate-500 dark:text-slate-400">
-                                    <span>UNGS</span>
-                                </div>
-                                <div class="mt-2">
-                                    <span class="inline-block px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-sm font-medium">
-                                        Analista de Sistemas
-                                    </span>
-                                </div>
-                            </div>
-                            <a href="https://docs.google.com/document/d/1-fxt6iwJVYJiTRNqdIut63_cOZ_dL2L6E7ahYPSeO78/edit?usp=sharing" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-2 md:mt-0">
-                                <i class="fas fa-file-alt mr-1"></i> FRD
-                            </a>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-4">
-                            <li>Relevamiento completo de requerimientos y análisis funcional</li>
-                            <li>Elaboración de FRD con especificaciones técnicas y casos de uso</li>
-                            <li>Diseño de estructura de base de datos y arquitectura del sistema</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Casos de uso</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">UML</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Flujos de Compra</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Diseño de Pruebas</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- TPUNGS Tester -->
-                <div class="timeline-item page-transition">
-                    <div class="timeline-content card-hover bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                            <div>
-                                <h3 class="text-xl font-semibold text-slate-800 dark:text-white">TPUNGS Tester – Juez Online</h3>
-                                <div class="flex items-center mt-1 text-sm text-slate-500 dark:text-slate-400">
-                                    <span>UNGS</span>
-                                </div>
-                                <div class="mt-2">
-                                    <span class="inline-block px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 text-sm font-medium">
-                                        Desarrollador Backend
-                                    </span>
-                                </div>
-                            </div>
-                            <!-- CORREGIDO: Agregar URL real del repositorio -->
-                            <a href="https://github.com/FrancoMendoza11/TPUNGS-Tester" target="_blank" class="text-sm text-indigo-500 dark:text-indigo-400 hover:underline flex items-center mt-2 md:mt-0">
-                                <i class="fab fa-github mr-1"></i> Repository
-                            </a>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 dark:text-slate-300 space-y-2 mb-4">
-                            <li>Sistema de evaluación automática de código Java y Python</li>
-                            <li>Implementación de motor de ejecución y validación de test suites</li>
-                            <li>Gestión de ejecución segura y generación de reportes</li>
-                        </ul>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Java</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Python</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">React</span>
-                            <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm">Testing</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 margintop">
+        <div class="container mx-auto px-6">
             <div class="text-center mb-16 page-transition">
                 <h2 class="text-3xl font-bold mb-4 section-title">
-                    <span class="text-gradient">@</span> <span class="language-transition" data-translate="contact_title">Contacto</span>
+                    <span class="text-gradient">+</span> <span class="language-transition" data-translate="experience_title">Experiencia Profesional</span>
                 </h2>
-                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto language-transition fade-in-up" data-translate="contact_text">
-                    ¿Interesado en trabajar juntos? No dudes en contactarme
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto language-transition fade-in-up" data-translate="experience_text">
+                    Mi trayectoria profesional en el ámbito del desarrollo de software
                 </p>
             </div>
             
-            <div class="flex flex-col lg:flex-row gap-12">
-                <div class="lg:w-1/2 animate__animated animate__fadeInLeft page-transition">
-                    <div class="contact-card rounded-2xl p-8 shadow-lg border border-slate-100 dark:border-slate-700/50 theme-transition">
-                        <h3 class="text-2xl font-bold mb-6 text-gradient language-transition" data-translate="contact_form">Formulario de Contacto</h3>
+            <div class="professional-experience">
+                <div class="experience-card page-transition">
+                    <div class="card-glow-effect"></div>
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">Novara Soft</h3>
+                            <p class="text-lg text-slate-600 dark:text-slate-300 mb-2">Co-fundador y Desarrollador Fullstack</p>
+                            <p class="text-slate-500 dark:text-slate-400">Agosto 2025 - Actualidad</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p class="text-slate-600 dark:text-slate-300 mb-4">
+                            Como Co-fundador y Desarrollador Fullstack en Novara Soft, me dedico al desarrollo completo de aplicaciones web, 
+                            desde el análisis de requerimientos hasta la implementación, testing y optimización.
+                        </p>
                         
-                        <form id="contact-form" class="space-y-6">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 language-transition" data-translate="name_label">Nombre</label>
-                                    <input type="text" id="name" name="name" required 
-                                           class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 theme-transition form-input"
-                                           placeholder="Tu nombre">
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Email</label>
-                                    <input type="email" id="email" name="email" required 
-                                           class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 theme-transition form-input"
-                                           placeholder="tu@email.com">
-                                </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <h4 class="font-semibold text-slate-800 dark:text-white mb-2">Responsabilidades Principales:</h4>
+                                <ul class="text-slate-600 dark:text-slate-300 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Desarrollo de aplicaciones web: requerimientos, diseño, implementación y testing</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Optimización de UX, rendimiento y documentación técnica</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Coordinación entre equipos de desarrollo y clientes</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                        <span>Gestión de proyectos y metodologías ágiles</span>
+                                    </li>
+                                </ul>
                             </div>
                             <div>
-                                <label for="subject" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 language-transition" data-translate="subject_label">Asunto</label>
-                                <input type="text" id="subject" name="subject" required 
-                                       class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 theme-transition form-input"
-                                       placeholder="Asunto del mensaje">
+                                <h4 class="font-semibold text-slate-800 dark:text-white mb-2">Logros Destacados:</h4>
+                                <ul class="text-slate-600 dark:text-slate-300 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                        <span>Desarrollo de Luxe Imports y MandaleMarketing</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                        <span>Implementación de metodologías ágiles en proyectos clave</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                        <span>Mejora en la comunicación cliente-equipo de desarrollo</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2 language-transition" data-translate="message_label">Mensaje</label>
-                                <textarea id="message" name="message" rows="5" required 
-                                          class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-300 theme-transition form-input resize-none"
-                                          placeholder="Tu mensaje..."></textarea>
-                            </div>
-                            <button type="submit" 
-                                    class="w-full px-6 py-4 bg-gradient-to-r from-indigo-500 to-blue-500 text-white rounded-lg font-medium shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 theme-transition">
-                                <span class="language-transition" data-translate="send_message">Enviar Mensaje</span>
-                                <i class="fas fa-paper-plane ml-2"></i>
-                            </button>
-                        </form>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Tailwind CSS</span>
+                        <span class="tech-tag">Metodologías Ágiles</span>
+                        <span class="tech-tag">Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Proyectos -->
+    <section id="projects" class="py-20 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-3xl font-bold mb-4 section-title">
+                    <span class="text-gradient">//</span> <span class="language-transition" data-translate="projects_title">Proyectos</span>
+                </h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto language-transition fade-in-up" data-translate="projects_text">
+                    Algunos de los proyectos en los que he trabajado, demostrando mis habilidades técnicas y capacidad de resolución de problemas
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Proyecto 1 - HealthFirst -->
+                <div class="project-card page-transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver código del proyecto">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">HealthFirst – Sistema de Gestión de Licencias con ML</h3>
+                        <p class="project-subtitle">Sistema de Gestión con Machine Learning</p>
                         
-                        <!-- Mensaje de éxito -->
-                        <div id="success-message" class="success-message mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800/50 rounded-lg">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-check-circle text-green-500 text-xl"></i>
-                                </div>
-                                <div class="ml-3">
-                                    <h3 class="text-sm font-medium text-green-800 dark:text-green-300 language-transition" data-translate="success_title">¡Mensaje enviado!</h3>
-                                    <div class="mt-1 text-sm text-green-700 dark:text-green-400 language-transition" data-translate="success_message">
-                                        Tu mensaje ha sido enviado correctamente. Me pondré en contacto contigo pronto.
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="project-role">
+                            <span class="role-badge-purple">Scrum Master</span>
+                            <span class="role-badge">QA/Testing</span>
+                        </div>
+                        
+                        <ul class="project-description">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Liderazgo de equipo ágil de 8 integrantes, coordinación de sprints</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Testing automatizado con Playwright (frontend) y UnitTest (backend)</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Testing de APIs con Postman y validación de modelos ML</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Stack: Django, React, PostgreSQL, Metabase, Scikit-learn</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="project-tech">
+                            <span>Django</span>
+                            <span>React</span>
+                            <span>PostgreSQL</span>
+                            <span>Scikit-learn</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2 animate__animated animate__fadeInRight page-transition">
-                    <div class="contact-card rounded-2xl p-8 shadow-lg border border-slate-100 dark:border-slate-700/50 theme-transition h-full">
-                        <h3 class="text-2xl font-bold mb-6 text-gradient language-transition" data-translate="contact_info">Información de Contacto</h3>
+                <!-- Proyecto 2 - LibroClick -->
+                <div class="project-card page-transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver código del proyecto">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">LibroClick – E-commerce de Libros</h3>
+                        <p class="project-subtitle">Plataforma de Comercio Electrónico</p>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-envelope text-indigo-500 dark:text-indigo-400 text-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-1">Email</h4>
-                                    <p class="text-slate-600 dark:text-slate-400">francojaviermendoza04@gmail.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/20 flex items-center justify-center mr-4">
-                                    <i class="fab fa-linkedin-in text-blue-500 dark:text-blue-400 text-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-1">LinkedIn</h4>
-                                    <a href="https://www.linkedin.com/in/franco-mendoza-779138258/" target="_blank" class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">
-                                        /franco-mendoza-779138258
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/20 flex items-center justify-center mr-4">
-                                    <i class="fab fa-github text-purple-500 dark:text-purple-400 text-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-1">GitHub</h4>
-                                    <a href="https://github.com/FrancoMendoza11" target="_blank" class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">
-                                        FrancoMendoza11
-                                    </a>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900/20 flex items-center justify-center mr-4">
-                                    <i class="fas fa-map-marker-alt text-green-500 dark:text-green-400 text-lg"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-1 language-transition" data-translate="location">Ubicación</h4>
-                                    <p class="text-slate-600 dark:text-slate-400">San Miguel, Buenos Aires, Argentina</p>
-                                </div>
-                            </div>
+                        <div class="project-role">
+                            <span class="role-badge-green">Analista de Sistemas</span>
                         </div>
                         
-                        <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700/50">
-                            <h4 class="font-semibold text-slate-800 dark:text-slate-200 mb-4 language-transition" data-translate="availability">Disponibilidad</h4>
-                            <div class="flex items-center">
-                                <div class="w-3 h-3 rounded-full bg-green-500 mr-3 animate-pulse"></div>
-                                <p class="text-slate-600 dark:text-slate-400 language-transition" data-translate="available">Disponible para proyectos y oportunidades laborales</p>
-                            </div>
+                        <ul class="project-description">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Relevamiento completo de requerimientos y análisis funcional</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Elaboración de FRD con especificaciones funcionales y no funcionales</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Modelado UML: casos de uso, actividades, secuencia y clases</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Prototipado de interfaces y validación con stakeholders</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="project-tech">
+                            <span>UML</span>
+                            <span>Figma</span>
+                            <span>Jira</span>
+                            <span>BRD/FRD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 3 - Luxe Imports -->
+                <div class="project-card page-transition" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Ver código del proyecto">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Ver demo del proyecto">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3 class="project-title">Luxe Imports – Ecommerce</h3>
+                        <p class="project-subtitle">Ecommerce para productos importados de lujo</p>
+                        
+                        <div class="project-role">
+                            <span class="role-badge-blue">Desarrollador Fullstack</span>
+                        </div>
+                        
+                        <ul class="project-description">
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Desarrollo completo de aplicación web con React y Node.js</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Implementación de base de datos MongoDB y API REST</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Diseño responsivo con Tailwind CSS y optimización de UX</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check"></i>
+                                <span>Testing manual y automatizado con Playwright</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Tailwind CSS</span>
                         </div>
                     </div>
                 </div>
@@ -1337,348 +584,101 @@
         </div>
     </section>
 
+<!-- Contact Section -->
+<section id="contact" class="py-20 relative overflow-hidden contact-section">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16 page-transition">
+            <h2 class="text-3xl font-bold mb-4 section-title">
+                <span class="text-gradient">@</span> <span class="language-transition" data-translate="contact_title">Contacto</span>
+            </h2>
+        </div>
+        
+        <div class="max-w-2xl mx-auto">
+            <div class="page-transition" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Email -->
+                    <div class="contact-card">
+                        <div class="contact-icon contact-email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 dark:text-white mb-3 text-center text-lg">Email</h3>
+                        <a href="mailto:francojaviermendoza04@gmail.com" 
+                           class="contact-link text-slate-600 dark:text-slate-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300 break-all text-center block">
+                            francojaviermendoza04@gmail.com
+                        </a>
+                    </div>
+                    
+                    <!-- LinkedIn -->
+                    <div class="contact-card">
+                        <div class="contact-icon contact-linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 dark:text-white mb-3 text-center text-lg">LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/franco-mendoza-/" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="contact-link text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 text-center block">
+                            /in/franco-mendoza-/
+                        </a>
+                    </div>
+                    
+                    <!-- GitHub -->
+                    <div class="contact-card">
+                        <div class="contact-icon contact-github">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 dark:text-white mb-3 text-center text-lg">GitHub</h3>
+                        <a href="https://github.com/FrancoMendoza11" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="contact-link text-slate-600 dark:text-slate-300 hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300 text-center block">
+                            FrancoMendoza11
+                        </a>
+                    </div>
+                    
+                    <!-- Ubicación -->
+                    <div class="contact-card">
+                        <div class="contact-icon contact-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="font-semibold text-slate-800 dark:text-white mb-3 text-center text-lg">Ubicación</h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-center">Buenos Aires, Argentina</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Footer -->
-    <footer class="py-8 bg-slate-800 dark:bg-slate-950 text-slate-300 theme-transition">
+    <footer class="py-8 border-t border-slate-200 dark:border-slate-800 theme-transition">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p class="language-transition" data-translate="copyright">© 2025 Franco Mendoza. Todos los derechos reservados.</p>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm">
+                        &copy; 2025 Franco Mendoza. <span class="language-transition" data-translate="rights">Todos los derechos reservados.</span>
+                    </p>
                 </div>
+                
                 <div class="flex space-x-6">
-                    <a href="https://github.com/FrancoMendoza11" target="_blank" class="footer-link">
-                        <i class="fab fa-github text-xl"></i>
+                    <a href="https://www.linkedin.com/in/franco-mendoza-/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors duration-300">
+                        <i class="fab fa-linkedin-in text-lg"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/franco-mendoza-779138258/" target="_blank" class="footer-link">
-                        <i class="fab fa-linkedin-in text-xl"></i>
+                    <a href="https://github.com/francomendoza-universidad" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors duration-300">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="mailto:francomendoza.universidad@gmail.com" class="text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300">
+                        <i class="fas fa-envelope text-lg"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- AOS Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
-    <script>
-        // Inicializar AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-        
-        // Ocultar pantalla de carga
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loading-screen').classList.add('hidden');
-            }, 1000);
-            
-            document.querySelectorAll('.page-transition').forEach(el => {
-                el.classList.add('visible');
-            });
-        });
+    <!-- Botón de volver arriba -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-indigo-500 text-white rounded-full shadow-lg hover:shadow-indigo-500/30 transition-all duration-300 transform translate-y-16 opacity-0 z-40 flex items-center justify-center" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-        // Toggle de tema oscuro/claro
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-        const html = document.documentElement;
-
-        // Verificar preferencia del sistema o tema guardado
-        if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-            html.classList.remove('dark');
-            themeToggleLightIcon.classList.remove('hidden');
-            themeToggleDarkIcon.classList.add('hidden');
-        } else {
-            html.classList.add('dark');
-            themeToggleLightIcon.classList.add('hidden');
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
-
-        // Alternar tema
-        themeToggle.addEventListener('click', function() {
-            // Alternar iconos
-            themeToggleLightIcon.classList.toggle('hidden');
-            themeToggleDarkIcon.classList.toggle('hidden');
-            
-            // Si está configurado en modo oscuro
-            if (html.classList.contains('dark')) {
-                html.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // Toggle de menú móvil
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        menuBtn.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-            
-            // Animación de hamburguesa a X
-            const spans = menuBtn.querySelectorAll('span');
-            if (mobileMenu.classList.contains('hidden')) {
-                spans[0].style.transform = 'none';
-                spans[1].style.width = '80%';
-                spans[2].style.transform = 'none';
-            } else {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.width = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            }
-        });
-
-        // Cerrar menú móvil al hacer clic en un enlace
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-                const spans = menuBtn.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.width = '80%';
-                spans[2].style.transform = 'none';
-            });
-        });
-
-        // Smooth scroll para enlaces internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Formulario de contacto
-        const contactForm = document.getElementById('contact-form');
-        const successMessage = document.getElementById('success-message');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Aquí normalmente enviarías el formulario a un servidor
-            // Por ahora, solo mostraremos el mensaje de éxito
-            
-            // Mostrar mensaje de éxito
-            successMessage.classList.add('show');
-            
-            // Ocultar mensaje después de 5 segundos
-            setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 5000);
-            
-            // Limpiar formulario
-            contactForm.reset();
-        });
-
-        // Animaciones al hacer scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos con clase page-transition
-        document.querySelectorAll('.page-transition').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Sistema de cambio de idioma
-        const languageToggle = document.getElementById('language-toggle');
-        const languageIcon = document.getElementById('language-icon');
-        let currentLanguage = 'es';
-
-        // Textos en diferentes idiomas
-        const translations = {
-            es: {
-                about_nav: 'Sobre mí',
-                skills_nav: 'Habilidades',
-                experience_nav: 'Experiencia',
-                contact_nav: 'Contacto',
-                welcome: '¡Bienvenido a mi portfolio!',
-                role: 'Analista Funcional | Desarrollo Backend | QA',
-                contact: 'Contactame',
-                view_projects: 'Ver Proyectos',
-                explore: 'Explorar más',
-                about: '//',
-                about_title: 'Sobre mí',
-                about_text: 'Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado de Licenciatura en Sistemas. Experiencia en desarrollo y testing de software, análisis de requerimientos y gestión de proyectos ágiles. Conocimientos en Power BI, bases de datos y herramientas de análisis.',
-                name: 'Nombre:',
-                location: 'Ubicación:',
-                availability: 'Disponibilidad:',
-                download_cv: 'Descargar CV',
-                skills_title: 'Habilidades Técnicas',
-                skills_text: 'Conjunto de habilidades que he adquirido a lo largo de mi formación académica y proyectos personales',
-                functional_analysis: 'Análisis Funcional',
-                analysis_item1: 'Elaboración de casos de uso, user stories y flujos alternativos',
-                analysis_item2: 'Modelado UML (diagramas de caso de uso, actividad, secuencia y clases)',
-                analysis_item3: 'Documentación técnica: FRD, BRD, manuales de usuario y guías técnicas',
-                analysis_item4: 'Especificación de requerimientos funcionales y no funcionales',
-                analysis_item5: 'Gestión de stakeholders y validación de requerimientos',
-                analysis_item6: 'Elaboración de prototipos funcionales y wireframes',
-                testing_qa: 'Testing / QA',
-                testing_item1: 'Testing manual: test cases, regresión, validación',
-                testing_item2: 'Reporte y gestión de bugs (Jira, Trello)',
-                testing_item3: 'Testing exploratorio y automatizado (Playwright, JUnit)',
-                testing_item4: 'Pruebas funcionales de APIs con Postman',
-                development_tools: 'Desarrollo y Herramientas',
-                dev_item1: 'Lenguajes: Java, Python, C, JavaScript, HTML5, CSS3',
-                dev_item2: 'Frameworks: React, Node.js, Django, Tailwind CSS',
-                dev_item3: 'Bases de datos: PostgreSQL, MongoDB, SQL',
-                dev_item4: 'Testing: Playwright, JUnit, Postman',
-                dev_item5: 'Herramientas: Git, Power BI, Excel, Trello, Jira',
-                dev_item6: 'Sistemas operativos: Linux, Windows',
-                experience_title: 'Experiencia Profesional',
-                contact_title: 'Contacto',
-                contact_text: '¿Interesado en trabajar juntos? No dudes en contactarme',
-                contact_form: 'Formulario de Contacto',
-                name_label: 'Nombre',
-                subject_label: 'Asunto',
-                message_label: 'Mensaje',
-                send_message: 'Enviar Mensaje',
-                contact_info: 'Información de Contacto',
-                available: 'Disponible para proyectos y oportunidades laborales',
-                success_title: '¡Mensaje enviado!',
-                success_message: 'Tu mensaje ha sido enviado correctamente. Me pondré en contacto contigo pronto.',
-                copyright: '© 2024 Franco Mendoza. Todos los derechos reservados.'
-            },
-            en: {
-                about_nav: 'About Me',
-                skills_nav: 'Skills',
-                experience_nav: 'Experience',
-                contact_nav: 'Contact',
-                welcome: 'Welcome to my portfolio!',
-                role: 'Functional Analyst | Backend Development | QA',
-                contact: 'Contact Me',
-                view_projects: 'View Projects',
-                explore: 'Explore More',
-                about: '//',
-                about_title: 'About Me',
-                about_text: 'University Technician in Computer Science (UNGS, 2025) and advanced student of Systems Engineering. Experience in software development and testing, requirements analysis, and agile project management. Knowledge in Power BI, databases, and analysis tools.',
-                name: 'Name:',
-                location: 'Location:',
-                availability: 'Availability:',
-                download_cv: 'Download CV',
-                skills_title: 'Technical Skills',
-                skills_text: 'Set of skills I have acquired throughout my academic training and personal projects',
-                functional_analysis: 'Functional Analysis',
-                analysis_item1: 'Development of use cases, user stories and alternative flows',
-                analysis_item2: 'UML modeling (use case, activity, sequence and class diagrams)',
-                analysis_item3: 'Technical documentation: FRD, BRD, user manuals and technical guides',
-                analysis_item4: 'Specification of functional and non-functional requirements',
-                analysis_item5: 'Stakeholder management and requirements validation',
-                analysis_item6: 'Development of functional prototypes and wireframes',
-                testing_qa: 'Testing / QA',
-                testing_item1: 'Manual testing: test cases, regression, validation',
-                testing_item2: 'Bug reporting and management (Jira, Trello)',
-                testing_item3: 'Exploratory and automated testing (Playwright, JUnit)',
-                testing_item4: 'API functional testing with Postman',
-                development_tools: 'Development and Tools',
-                dev_item1: 'Languages: Java, Python, C, JavaScript, HTML5, CSS3',
-                dev_item2: 'Frameworks: React, Node.js, Django, Tailwind CSS',
-                dev_item3: 'Databases: PostgreSQL, MongoDB, SQL',
-                dev_item4: 'Testing: Playwright, JUnit, Postman',
-                dev_item5: 'Tools: Git, Power BI, Excel, Trello, Jira',
-                dev_item6: 'Operating Systems: Linux, Windows',
-                experience_title: 'Professional Experience',
-                contact_title: 'Contact',
-                contact_text: 'Interested in working together? Feel free to contact me',
-                contact_form: 'Contact Form',
-                name_label: 'Name',
-                subject_label: 'Subject',
-                message_label: 'Message',
-                send_message: 'Send Message',
-                contact_info: 'Contact Information',
-                available: 'Available for projects and job opportunities',
-                success_title: 'Message sent!',
-                success_message: 'Your message has been sent successfully. I will contact you soon.',
-                copyright: '© 2024 Franco Mendoza. All rights reserved.'
-            }
-        };
-
-        // Cambiar idioma
-        languageToggle.addEventListener('click', function() {
-            // Aplicar transición de opacidad
-            document.querySelectorAll('.language-transition').forEach(el => {
-                el.style.opacity = '0';
-            });
-            
-            setTimeout(() => {
-                currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
-                languageIcon.textContent = currentLanguage === 'es' ? 'ES' : 'EN';
-                
-                // Actualizar textos
-                document.querySelectorAll('.language-transition').forEach(el => {
-                    const key = el.getAttribute('data-translate');
-                    if (translations[currentLanguage][key]) {
-                        el.textContent = translations[currentLanguage][key];
-                    }
-                });
-                
-                // Restaurar opacidad
-                document.querySelectorAll('.language-transition').forEach(el => {
-                    el.style.opacity = '1';
-                });
-            }, 150);
-        });
-
-        // Scroll indicator functionality
-        const scrollDots = document.querySelectorAll('.scroll-dot');
-        const sections = document.querySelectorAll('section[id]');
-        
-        function updateScrollIndicator() {
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            scrollDots.forEach(dot => {
-                dot.classList.remove('active');
-                if (dot.getAttribute('data-section') === currentSection) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-        
-        scrollDots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const targetSection = this.getAttribute('data-section');
-                const targetElement = document.getElementById(targetSection);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        window.addEventListener('scroll', updateScrollIndicator);
-        updateScrollIndicator(); // Initialize on page load
-    </script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,326 +1,319 @@
-// ============ Animación de fondo ============
-
-function createGridBackground() {
-    const container = document.createElement('div');
-    container.className = 'grid-background';
-    
-    // Crear líneas horizontales
-    for (let i = 0; i < 20; i++) {
-        const line = document.createElement('div');
-        line.className = 'grid-line horizontal';
-        line.style.top = `${(i * 5)}%`;
-        line.style.animationDelay = `${(i * 0.2)}s`;
-        container.appendChild(line);
-    }
-    
-    // Crear líneas verticales
-    for (let i = 0; i < 20; i++) {
-        const line = document.createElement('div');
-        line.className = 'grid-line vertical';
-        line.style.left = `${(i * 5)}%`;
-        line.style.animationDelay = `${(i * 0.2) + 0.5}s`;
-        container.appendChild(line);
-    }
-    
-    document.body.appendChild(container);
-}
-
-
-document.addEventListener('DOMContentLoaded', function() {
-
-     createGridBackground();      // Opción 3: Grid animado
-    // ============ Modo oscuro/claro ============
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-    
-    // Verificar preferencias al cargar
-    if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-        themeToggleLightIcon.classList.remove('hidden');
-        themeToggleDarkIcon.classList.add('hidden');
-    } else {
-        document.documentElement.classList.remove('dark');
-        themeToggleDarkIcon.classList.remove('hidden');
-        themeToggleLightIcon.classList.add('hidden');
-    }
-    
-    // Manejar el cambio de tema
-    themeToggleBtn.addEventListener('click', function() {
-        // Alternar iconos
-        themeToggleDarkIcon.classList.toggle('hidden');
-        themeToggleLightIcon.classList.toggle('hidden');
+// Inicializar AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
         
-        // Alternar clase dark
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        
-        // Agregar transición suave
-        document.documentElement.classList.add('transition-colors');
-        setTimeout(() => {
-            document.documentElement.classList.remove('transition-colors');
-        }, 500);
-    });
+        // Ocultar pantalla de carga
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').classList.add('hidden');
+            }, 1000);
+            
+            document.querySelectorAll('.page-transition').forEach(el => {
+                el.classList.add('visible');
+            });
+        });
 
-    // ============ Menú móvil ============
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuBtn.addEventListener('click', function() {
-        const isOpen = mobileMenu.classList.toggle('hidden');
-        
-        // Animación de hamburguesa a X
-        const bars = menuBtn.querySelectorAll('span');
-        if (isOpen) {
-            bars[0].style.transform = 'rotate(0) translateY(0)';
-            bars[1].style.opacity = '1';
-            bars[2].style.transform = 'rotate(0) translateY(0)';
+        // Toggle de tema oscuro/claro
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+
+        // Verificar preferencia del sistema o tema guardado
+        if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            html.classList.remove('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+            themeToggleDarkIcon.classList.add('hidden');
         } else {
-            bars[0].style.transform = 'rotate(45deg) translateY(6px)';
-            bars[1].style.opacity = '0';
-            bars[2].style.transform = 'rotate(-45deg) translateY(-6px)';
+            html.classList.add('dark');
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
         }
-    });
 
-    // ============ Scroll suave ============
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+        // Alternar tema
+        themeToggle.addEventListener('click', function() {
+            // Alternar iconos
+            themeToggleLightIcon.classList.toggle('hidden');
+            themeToggleDarkIcon.classList.toggle('hidden');
             
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            // Si está configurado en modo oscuro
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Toggle de menú móvil
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
             
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+            // Animación de hamburguesa a X
+            const spans = menuBtn.querySelectorAll('span');
+            if (mobileMenu.classList.contains('hidden')) {
+                spans[0].style.transform = 'none';
+                spans[1].style.width = '80%';
+                spans[2].style.transform = 'none';
+            } else {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.width = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            }
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                const spans = menuBtn.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.width = '80%';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                // Cerrar menú móvil si está abierto
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    menuBtn.querySelectorAll('span').forEach(span => {
-                        span.style.transform = '';
-                        span.style.opacity = '';
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
                     });
                 }
-            }
+            });
         });
-    });
 
-    // ============ Animaciones al hacer scroll ============
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
+        // Formulario de contacto
+        const contactForm = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            if (elementPosition < screenPosition) {
-                element.classList.add('animate__animated', 'animate__fadeInUp');
-            }
+            // Aquí normalmente enviarías el formulario a un servidor
+            // Por ahora, solo mostraremos el mensaje de éxito
+            
+            // Mostrar mensaje de éxito
+            successMessage.classList.add('show');
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+            
+            // Limpiar formulario
+            contactForm.reset();
         });
-    };
-    
-    // Ejecutar al cargar y al hacer scroll
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
 
-    // ============ Efecto de carga inicial ============
-    setTimeout(() => {
-        document.body.classList.remove('opacity-0');
-    }, 100);
+        // Animaciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    // ============ Cambio de idioma ============
-    const languageToggleBtn = document.getElementById('language-toggle');
-    const languageIcon = document.getElementById('language-icon');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-    // Crear overlay para la animación
-    const createLanguageOverlay = () => {
-        const overlay = document.createElement('div');
-        overlay.className = 'language-transition-overlay';
-        overlay.innerHTML = `
-            <div class="language-transition-content">
-                <div class="language-transition-icon">
-                    <i class="fas fa-language"></i>
-                </div>
-                <div class="language-transition-text" id="transition-text"></div>
-            </div>
-        `;
-        document.body.appendChild(overlay);
-        return overlay;
-    };
+        // Observar elementos con clase page-transition
+        document.querySelectorAll('.page-transition').forEach(el => {
+            observer.observe(el);
+        });
 
-    const languageOverlay = createLanguageOverlay();
-    const transitionText = document.getElementById('transition-text');
+        // Sistema de cambio de idioma
+        const languageToggle = document.getElementById('language-toggle');
+        const languageIcon = document.getElementById('language-icon');
+        let currentLanguage = 'es';
 
-    // Textos traducidos
-    const translations = {
-        'en': {
-            'title': 'Franco Mendoza | Portfolio',
-            'welcome': 'Welcome to my portfolio!',
-            'role': 'Functional Analyst | Backend Development | QA',
-            'contact': 'Contact me',
-            'view_projects': 'View Projects',
-            'explore': 'Explore more',
-            'about': 'About me',
-            'about_text': 'University Technician in Computer Science (UNGS, 2025) and advanced student in Systems Engineering. Specialized in functional analysis and QA, with academic experience in documentation, requirement specification and test design.',
-            'name': 'Name:',
-            'email': 'Email:',
-            'location': 'Location:',
-            'availability': 'Availability:',
-            'download_cv': 'Download CV',
-            'skills': 'Technical Skills',
-            'skills_text': 'Set of skills I have acquired throughout my academic training and personal projects',
-            'experience': 'Academic/Personal Projects',
-            'contact_title': 'Contact',
-            'contact_text': 'Interested in working together? Send me a message!',
-            'contact_info': 'Contact Information',
-            'send_message': 'Send me a message',
-            'message': 'Message',
-            'your_name': 'Your name',
-            'your_email': 'Your email',
-            'write_message': 'Write your message...',
-            'send': 'Send Message',
-            'copyright': '© 2025 Franco Mendoza. All rights reserved.',
-            'about_nav': 'About',
-            'skills_nav': 'Skills',
-            'experience_nav': 'Experience',
-            'contact_nav': 'Contact',
-            'transition_text': 'Changing to English'
-        },
-        'es': {
-            'title': 'Franco Mendoza | Portfolio',
-            'welcome': '¡Bienvenido a mi portfolio!',
-            'role': 'Analista Funcional | Desarrollo Backend | QA',
-            'contact': 'Contactame',
-            'view_projects': 'Ver Proyectos',
-            'explore': 'Explorar más',
-            'about': 'Sobre mí',
-            'about_text': 'Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado en Lic. en Sistemas. Especializado en análisis funcional y QA, con experiencia académica en documentación, especificación de requerimientos y diseño de pruebas.',
-            'name': 'Nombre:',
-            'email': 'Email:',
-            'location': 'Ubicación:',
-            'availability': 'Disponibilidad:',
-            'download_cv': 'Descargar CV',
-            'skills': 'Habilidades Técnicas',
-            'skills_text': 'Conjunto de habilidades que he adquirido a lo largo de mi formación académica y proyectos personales',
-            'experience': 'Proyectos Académicos/Personales Destacados',
-            'contact_title': 'Contacto',
-            'contact_text': '¿Interesado en trabajar juntos? ¡Enviame un mensaje!',
-            'contact_info': 'Información de Contacto',
-            'send_message': 'Envíame un mensaje',
-            'message': 'Mensaje',
-            'your_name': 'Tu nombre',
-            'your_email': 'Tu email',
-            'write_message': 'Escribí tu mensaje...',
-            'send': 'Enviar Mensaje',
-            'copyright': '© 2025 Franco Mendoza. Todos los derechos reservados.',
-            'about_nav': 'Sobre mí',
-            'skills_nav': 'Habilidades',
-            'experience_nav': 'Experiencia',
-            'contact_nav': 'Contacto',
-            'transition_text': 'Cambiando a Español'
+        // Textos en diferentes idiomas
+        const translations = {
+            es: {
+                about_nav: 'Sobre mí',
+                skills_nav: 'Habilidades',
+                experience_nav: 'Experiencia',
+                contact_nav: 'Contacto',
+                welcome: '¡Bienvenido a mi portfolio!',
+                role: 'Analista Funcional | Desarrollo Backend | QA',
+                contact: 'Contactame',
+                view_projects: 'Ver Proyectos',
+                explore: 'Explorar más',
+                about: '//',
+                about_title: 'Sobre mí',
+                about_text: 'Técnico Universitario en Informática (UNGS, 2025) y estudiante avanzado de Licenciatura en Sistemas. Experiencia en desarrollo y testing de software, análisis de requerimientos y gestión de proyectos ágiles. Conocimientos en Power BI, bases de datos y herramientas de análisis.',
+                name: 'Nombre:',
+                location: 'Ubicación:',
+                availability: 'Disponibilidad:',
+                download_cv: 'Descargar CV',
+                skills_title: 'Habilidades Técnicas',
+                skills_text: 'Conjunto de habilidades que he adquirido a lo largo de mi formación académica y proyectos personales',
+                functional_analysis: 'Análisis Funcional',
+                analysis_item1: 'Elaboración de casos de uso, user stories y flujos alternativos',
+                analysis_item2: 'Modelado UML (diagramas de caso de uso, actividad, secuencia y clases)',
+                analysis_item3: 'Documentación técnica: FRD, BRD, manuales de usuario y guías técnicas',
+                analysis_item4: 'Especificación de requerimientos funcionales y no funcionales',
+                analysis_item5: 'Gestión de stakeholders y validación de requerimientos',
+                analysis_item6: 'Elaboración de prototipos funcionales y wireframes',
+                testing_qa: 'Testing / QA',
+                testing_item1: 'Testing manual: test cases, regresión, validación',
+                testing_item2: 'Reporte y gestión de bugs (Jira, Trello)',
+                testing_item3: 'Testing exploratorio y automatizado (Playwright, JUnit)',
+                testing_item4: 'Pruebas funcionales de APIs con Postman',
+                development_tools: 'Desarrollo y Herramientas',
+                dev_item1: 'Lenguajes: Java, Python, C, JavaScript, HTML5, CSS3',
+                dev_item2: 'Frameworks: React, Node.js, Django, Tailwind CSS',
+                dev_item3: 'Bases de datos: PostgreSQL, MongoDB, SQL',
+                dev_item4: 'Testing: Playwright, JUnit, Postman',
+                dev_item5: 'Herramientas: Git, Power BI, Excel, Trello, Jira',
+                dev_item6: 'Sistemas operativos: Linux, Windows',
+                experience_title: 'Experiencia Profesional',
+                contact_title: 'Contacto',
+                contact_text: '¿Interesado en trabajar juntos? No dudes en contactarme',
+                contact_form: 'Formulario de Contacto',
+                name_label: 'Nombre',
+                subject_label: 'Asunto',
+                message_label: 'Mensaje',
+                send_message: 'Enviar Mensaje',
+                contact_info: 'Información de Contacto',
+                available: 'Disponible para proyectos y oportunidades laborales',
+                success_title: '¡Mensaje enviado!',
+                success_message: 'Tu mensaje ha sido enviado correctamente. Me pondré en contacto contigo pronto.',
+                copyright: '© 2024 Franco Mendoza. Todos los derechos reservados.'
+            },
+            en: {
+                about_nav: 'About Me',
+                skills_nav: 'Skills',
+                experience_nav: 'Experience',
+                contact_nav: 'Contact',
+                welcome: 'Welcome to my portfolio!',
+                role: 'Functional Analyst | Backend Development | QA',
+                contact: 'Contact Me',
+                view_projects: 'View Projects',
+                explore: 'Explore More',
+                about: '//',
+                about_title: 'About Me',
+                about_text: 'University Technician in Computer Science (UNGS, 2025) and advanced student of Systems Engineering. Experience in software development and testing, requirements analysis, and agile project management. Knowledge in Power BI, databases, and analysis tools.',
+                name: 'Name:',
+                location: 'Location:',
+                availability: 'Availability:',
+                download_cv: 'Download CV',
+                skills_title: 'Technical Skills',
+                skills_text: 'Set of skills I have acquired throughout my academic training and personal projects',
+                functional_analysis: 'Functional Analysis',
+                analysis_item1: 'Development of use cases, user stories and alternative flows',
+                analysis_item2: 'UML modeling (use case, activity, sequence and class diagrams)',
+                analysis_item3: 'Technical documentation: FRD, BRD, user manuals and technical guides',
+                analysis_item4: 'Specification of functional and non-functional requirements',
+                analysis_item5: 'Stakeholder management and requirements validation',
+                analysis_item6: 'Development of functional prototypes and wireframes',
+                testing_qa: 'Testing / QA',
+                testing_item1: 'Manual testing: test cases, regression, validation',
+                testing_item2: 'Bug reporting and management (Jira, Trello)',
+                testing_item3: 'Exploratory and automated testing (Playwright, JUnit)',
+                testing_item4: 'API functional testing with Postman',
+                development_tools: 'Development and Tools',
+                dev_item1: 'Languages: Java, Python, C, JavaScript, HTML5, CSS3',
+                dev_item2: 'Frameworks: React, Node.js, Django, Tailwind CSS',
+                dev_item3: 'Databases: PostgreSQL, MongoDB, SQL',
+                dev_item4: 'Testing: Playwright, JUnit, Postman',
+                dev_item5: 'Tools: Git, Power BI, Excel, Trello, Jira',
+                dev_item6: 'Operating Systems: Linux, Windows',
+                experience_title: 'Professional Experience',
+                contact_title: 'Contact',
+                contact_text: 'Interested in working together? Feel free to contact me',
+                contact_form: 'Contact Form',
+                name_label: 'Name',
+                subject_label: 'Subject',
+                message_label: 'Message',
+                send_message: 'Send Message',
+                contact_info: 'Contact Information',
+                available: 'Available for projects and job opportunities',
+                success_title: 'Message sent!',
+                success_message: 'Your message has been sent successfully. I will contact you soon.',
+                copyright: '© 2024 Franco Mendoza. All rights reserved.'
+            }
+        };
+
+        // Cambiar idioma
+        languageToggle.addEventListener('click', function() {
+            // Aplicar transición de opacidad
+            document.querySelectorAll('.language-transition').forEach(el => {
+                el.style.opacity = '0';
+            });
+            
+            setTimeout(() => {
+                currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
+                languageIcon.textContent = currentLanguage === 'es' ? 'ES' : 'EN';
+                
+                // Actualizar textos
+                document.querySelectorAll('.language-transition').forEach(el => {
+                    const key = el.getAttribute('data-translate');
+                    if (translations[currentLanguage][key]) {
+                        el.textContent = translations[currentLanguage][key];
+                    }
+                });
+                
+                // Restaurar opacidad
+                document.querySelectorAll('.language-transition').forEach(el => {
+                    el.style.opacity = '1';
+                });
+            }, 150);
+        });
+
+        // Scroll indicator functionality
+        const scrollDots = document.querySelectorAll('.scroll-dot');
+        const sections = document.querySelectorAll('section[id]');
+        
+        function updateScrollIndicator() {
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            scrollDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === currentSection) {
+                    dot.classList.add('active');
+                }
+            });
         }
-    };
-
-    // Verificar preferencia al cargar
-    const currentLanguage = localStorage.getItem('language') || 'es';
-    document.documentElement.lang = currentLanguage;
-    languageIcon.textContent = currentLanguage.toUpperCase();
-
-    // Manejar el cambio de idioma
-    languageToggleBtn.addEventListener('click', function() {
-        const newLanguage = document.documentElement.lang === 'es' ? 'en' : 'es';
         
-        // Mostrar animación
-        transitionText.textContent = translations[newLanguage].transition_text;
-        languageOverlay.classList.add('active');
-        
-        // Crear efecto de onda en el botón
-        const wave = document.createElement('div');
-        wave.className = 'wave-effect';
-        const rect = languageToggleBtn.getBoundingClientRect();
-        wave.style.width = wave.style.height = `${Math.max(rect.width, rect.height)}px`;
-        wave.style.left = `${rect.left + rect.width/2 - wave.offsetWidth/2}px`;
-        wave.style.top = `${rect.top + rect.height/2 - wave.offsetHeight/2}px`;
-        document.body.appendChild(wave);
-        
-        // Eliminar el efecto de onda después de la animación
-        setTimeout(() => {
-            document.body.removeChild(wave);
-        }, 1000);
-        
-        // Cambiar idioma después de un breve delay para que se vea la animación
-        setTimeout(() => {
-            document.documentElement.lang = newLanguage;
-            localStorage.setItem('language', newLanguage);
-            languageIcon.textContent = newLanguage.toUpperCase();
-            updateTexts(newLanguage);
-            
-            // Ocultar animación
-            languageOverlay.classList.remove('active');
-        }, 800);
-    });
-
-    // Función para actualizar todos los textos
-    function updateTexts(language) {
-        const langData = translations[language];
-        
-        // Actualizar todos los elementos con data-translate
-        document.querySelectorAll('[data-translate]').forEach(element => {
-            const key = element.getAttribute('data-translate');
-            if (langData[key]) {
-                element.textContent = langData[key];
-            }
+        scrollDots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const targetSection = this.getAttribute('data-section');
+                const targetElement = document.getElementById(targetSection);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
         
-        // Actualizar elementos especiales
-        document.querySelector('title').textContent = langData.title;
-        
-        // Botones de la sección Hero
-        const heroButtons = document.querySelectorAll('.hero a');
-        if (heroButtons[0]) heroButtons[0].textContent = langData.contact;
-        if (heroButtons[1]) heroButtons[1].textContent = langData.view_projects;
-        
-        // Texto de explorar más
-        const exploreText = document.querySelector('.hero a[href="#about"] span');
-        if (exploreText) exploreText.textContent = langData.explore;
-        
-        // Títulos de secciones
-        const aboutTitle = document.querySelector('#about h2');
-        if (aboutTitle) aboutTitle.innerHTML = `<span class="text-gradient">//</span> ${langData.about}`;
-        
-        const skillsTitle = document.querySelector('#skills h2');
-        if (skillsTitle) skillsTitle.innerHTML = `<span class="text-gradient">#</span> ${langData.skills}`;
-        
-        const experienceTitle = document.querySelector('#experience h2');
-        if (experienceTitle) experienceTitle.innerHTML = `<span class="text-gradient">##</span> ${langData.experience}<span class="text-gradient">/</span>`;
-        
-        const contactTitle = document.querySelector('#contact h2');
-        if (contactTitle) contactTitle.innerHTML = `<span class="text-gradient">/</span> ${langData.contact_title}`;
-        
-        // Placeholders del formulario
-        const nameInput = document.querySelector('input[name="name"]');
-        if (nameInput) nameInput.placeholder = langData.your_name;
-        
-        const emailInput = document.querySelector('input[name="email"]');
-        if (emailInput) emailInput.placeholder = langData.your_email;
-        
-        const messageTextarea = document.querySelector('textarea[name="message"]');
-        if (messageTextarea) messageTextarea.placeholder = langData.write_message;
-        
-        // Botón de enviar
-        const submitButton = document.querySelector('#contact-form button');
-        if (submitButton) submitButton.textContent = langData.send;
-        
-        // Footer
-        const footerText = document.querySelector('footer p');
-        if (footerText) footerText.textContent = langData.copyright;
-    }
-
-    // Inicializar textos al cargar
-    updateTexts(currentLanguage);
-});
-
+        window.addEventListener('scroll', updateScrollIndicator);
+        updateScrollIndicator(); // Initialize on page load
