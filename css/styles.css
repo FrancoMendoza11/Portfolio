@@ -80,7 +80,7 @@ body {
         linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: -1;
-    opacity: 0.9;
+    opacity: 5.0;
     animation: grid-pulse 8s ease-in-out infinite;
 }
 
@@ -1009,4 +1009,47 @@ body {
 
 .contact-card:hover .contact-icon i {
     animation: icon-pulse 2s ease-in-out infinite;
+}
+
+.tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Aumenté de 0.75rem a 1rem */
+    border-radius: 0.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dark .tech-icon {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.tech-icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dark .tech-icon:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+.tech-icon span {
+    line-height: 1.2;
+}
+
+/* AÑADE ESTOS ESTILOS PARA ICONOS MÁS GRANDES */
+.tech-icon i {
+    font-size: 1.5rem !important; /* Aumenté de text-xl (1.25rem) a 1.5rem */
+    margin-bottom: 0.5rem;
+}
+
+.tech-icon span {
+    font-size: 0.75rem; /* Mantiene el texto pequeño para contraste */
+    font-weight: 500;
 }
