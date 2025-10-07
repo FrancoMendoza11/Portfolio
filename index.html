@@ -34,73 +34,98 @@
     <div class="blob blob-2"></div>
     <div class="blob blob-3"></div>
     
-    <!-- Navbar Flotante -->
-    <header class="fixed w-full bg-glass border-b border-slate-200 dark:border-slate-800 z-50 theme-transition navbar-floating">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <a href="#hero" class="text-2xl font-bold text-gradient bounce-in">FM</a>
-            
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="about_nav"> 
-                    Sobre mí
-                </a>
-                <a href="#skills" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="skills_nav">
-                    Habilidades
-                </a>
-                <a href="#experience" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="experience_nav">
-                    Experiencia
-                </a>
-                <a href="#projects" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="projects_nav">
-                    Proyectos
-                </a>
-                <a href="#contact" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="contact_nav">
-                    Contacto
-                </a>
-
-                <button id="language-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm ml-2 theme-transition" aria-label="Toggle language">
-                    <span id="language-icon" class="text-sm font-medium">ES</span>
-                </button>
-                
-                <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm theme-transition" aria-label="Toggle dark mode">
-                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 text-slate-700 dark:text-amber-300" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg>
-                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden text-amber-500 dark:text-slate-300" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                </button>
-            </nav>
-
-            <button id="menu-btn" class="md:hidden p-2 bg-slate-100 dark:bg-slate-700 rounded-lg shadow-sm focus:outline-none theme-transition" aria-label="Toggle menu">
-                <div class="w-6 flex flex-col space-y-1.5">
-                    <span class="h-0.5 w-full bg-slate-800 dark:bg-white rounded-full transition-all duration-300"></span>
-                    <span class="h-0.5 w-4/5 bg-slate-800 dark:bg-white rounded-full ml-auto transition-all duration-300"></span>
-                    <span class="h-0.5 w-full bg-slate-800 dark:bg-white rounded-full transition-all duration-300"></span>
-                </div>
-            </button>
-        </div>
+<!-- Navbar Flotante -->
+<header class="fixed w-full bg-glass border-b border-slate-200 dark:border-slate-800 z-50 theme-transition navbar-floating" style="z-index: 1000;">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#hero" class="text-2xl font-bold text-gradient bounce-in">FM</a>
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-lg py-4 px-6 border-t border-slate-200 dark:border-slate-800 theme-transition">
-            <div class="flex flex-col space-y-4">
-                <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="about_nav">
-                    Sobre mí
-                </a>
-                <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="skills_nav">
-                    Habilidades
-                </a>
-                <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="experience_nav">
-                    Experiencia
-                </a>
-                <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="projects_nav">
-                    Proyectos
-                </a>
-                <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="contact_nav">
-                    Contacto
-                </a>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#about" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="about_nav"> 
+                Sobre mí
+            </a>
+            <a href="#skills" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="skills_nav">
+                Habilidades
+            </a>
+            <a href="#experience" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="experience_nav">
+                Experiencia
+            </a>
+            <a href="#projects" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="projects_nav">
+                Proyectos
+            </a>
+            <a href="#contact" class="underline-animation text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors duration-300 font-medium language-transition" data-translate="contact_nav">
+                Contacto
+            </a>
+
+            <button id="language-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm ml-2 theme-transition" aria-label="Toggle language">
+                <span id="language-icon" class="text-sm font-medium">ES</span>
+            </button>
+            
+            <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm theme-transition" aria-label="Toggle dark mode">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 text-slate-700 dark:text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden text-amber-500 dark:text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <button id="menu-btn" class="md:hidden p-2 bg-slate-100 dark:bg-slate-700 rounded-lg shadow-sm focus:outline-none theme-transition" aria-label="Toggle menu">
+            <div class="w-6 h-5 flex flex-col justify-between">
+                <span class="hamburger-line h-0.5 w-full bg-slate-800 dark:bg-white rounded-full transition-all duration-300"></span>
+                <span class="hamburger-line h-0.5 w-full bg-slate-800 dark:bg-white rounded-full transition-all duration-300"></span>
+                <span class="hamburger-line h-0.5 w-full bg-slate-800 dark:bg-white rounded-full transition-all duration-300"></span>
+            </div>
+        </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-lg py-4 px-6 border-t border-slate-200 dark:border-slate-800 theme-transition">
+        <div class="flex flex-col space-y-4">
+            <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="about_nav">
+                Sobre mí
+            </a>
+            <a href="#skills" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="skills_nav">
+                Habilidades
+            </a>
+            <a href="#experience" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="experience_nav">
+                Experiencia
+            </a>
+            <a href="#projects" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="projects_nav">
+                Proyectos
+            </a>
+            <a href="#contact" class="text-slate-600 dark:text-slate-300 hover:text-gradient transition-colors duration-300 font-medium language-transition" data-translate="contact_nav">
+                Contacto
+            </a>
+            
+            <!-- Divisor -->
+            <div class="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+            
+            <!-- Controles de tema e idioma -->
+            <div class="flex items-center justify-between pt-2">
+                <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Idioma</span>
+                <button id="language-toggle-mobile" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm theme-transition" aria-label="Toggle language">
+                    <span id="language-icon-mobile" class="text-sm font-medium">ES</span>
+                </button>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <span class="text-sm font-medium text-slate-600 dark:text-slate-400">Tema</span>
+                <button id="theme-toggle-mobile" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 shadow-sm theme-transition" aria-label="Toggle dark mode">
+                    <div class="flex items-center gap-2">
+                        <svg id="theme-toggle-dark-icon-mobile" class="w-5 h-5 text-slate-700 dark:text-amber-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon-mobile" class="w-5 h-5 hidden text-amber-500 dark:text-slate-300" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                </button>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center pt-20 pb-16 px-6 relative overflow-hidden">
@@ -297,10 +322,6 @@
                         <span class="text-xs font-medium text-center">Java</span>
                     </div>
                     <div class="tech-icon">
-                        <i class="fas fa-leaf text-purple-500 text-xl mb-2"></i>
-                        <span class="text-xs font-medium text-center">Spring</span>
-                    </div>
-                    <div class="tech-icon">
                         <i class="fab fa-js text-purple-500 text-xl mb-2"></i>
                         <span class="text-xs font-medium text-center">JS/TS</span>
                     </div>
@@ -314,15 +335,19 @@
                     </div>
                     <div class="tech-icon">
                         <i class="fas fa-database text-purple-500 text-xl mb-2"></i>
-                        <span class="text-xs font-medium text-center">DBs</span>
+                        <span class="text-xs font-medium text-center">PostgreSQL</span>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fas fa-database text-purple-500 text-xl mb-2"></i>
+                        <span class="text-xs font-medium text-center">MongoDB</span>
+                    </div>
+                    <div class="tech-icon">
+                        <i class="fab fa-js text-purple-500 text-xl mb-2"></i>
+                        <span class="text-xs font-medium text-center">Node.js</span>
                     </div>
                     <div class="tech-icon">
                         <i class="fab fa-git-alt text-purple-500 text-xl mb-2"></i>
                         <span class="text-xs font-medium text-center">Git</span>
-                    </div>
-                    <div class="tech-icon">
-                        <i class="fab fa-docker text-purple-500 text-xl mb-2"></i>
-                        <span class="text-xs font-medium text-center">Docker</span>
                     </div>
                     <div class="tech-icon">
                         <i class="fas fa-chart-bar text-purple-500 text-xl mb-2"></i>
@@ -587,6 +612,169 @@
                         </div>
                     </div>
                 </div>
+
+		<!-- Proyecto 4 - TPUNGS Tester -->
+<div class="project-card page-transition" data-aos="fade-up" data-aos-delay="400">
+    <div class="project-glow"></div>
+    <div class="project-header">
+        <div class="project-icon">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="project-links">
+            <a href="https://github.com/FrancoMendoza11/tpungs-tester.git" class="project-link" aria-label="Ver código del proyecto">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="project-content">
+        <h3 class="project-title">TPUNGS Tester – Juez Online</h3>
+        <p class="project-subtitle">Sistema de Evaluación Automática UNGS</p>
+        
+        <div class="project-role">
+            <span class="role-badge-blue">Desarrollador Backend</span>
+        </div>
+        
+        <ul class="project-description">
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Sistema de evaluación automática de código Java y Python</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Implementación de motor de ejecución y validación de test suites</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Gestión de ejecución segura y generación de reportes detallados</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Arquitectura escalable para múltiples lenguajes de programación</span>
+            </li>
+        </ul>
+        
+        <div class="project-tech">
+	    <span>React</span>
+            <span>Node.js</span>
+            <span>Java</span>
+            <span>Python</span>
+        </div>
+    </div>
+</div>
+<!-- Proyecto 5 - Defend The Rogueship -->
+<div class="project-card page-transition" data-aos="fade-up" data-aos-delay="500">
+    <div class="project-glow"></div>
+    <div class="project-header">
+        <div class="project-icon">
+            <i class="fas fa-space-shuttle"></i>
+        </div>
+        <div class="project-links">
+            <a href="https://github.com/FrancoMendoza11/robot-defense-game.git" class="project-link" aria-label="Ver código del proyecto">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://defend-the-rogueship.vercel.app/" class="project-link" aria-label="Jugar al juego">
+                <i class="fas fa-gamepad"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="project-content">
+        <h3 class="project-title">Defend The Rogueship</h3>
+        <p class="project-subtitle">Videojuego de Defensa Espacial</p>
+        
+        <div class="project-role">
+            <span class="role-badge-purple">Desarrollador Fullstack</span>
+            <span class="role-badge">Game Developer</span>
+        </div>
+        
+        <ul class="project-description">
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Juego de defensa espacial con nave varada atacada por oleadas de enemigos</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Mecánica principal: destruir enemigos haciendo click para avanzar rondas</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Sistema de progresión con enemigos más fuertes en rondas avanzadas</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Sistema de economía: puntos para comprar mejoras y potenciadores</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Desarrollado con React, Tailwind CSS y lógica de juego personalizada</span>
+            </li>
+        </ul>
+        
+        <div class="project-tech">
+            <span>React</span>
+            <span>Tailwind CSS</span>
+            <span>JavaScript</span>
+            <span>Game Development</span>
+            <span>CSS Animations</span>
+        </div>
+    </div>
+</div>
+<!-- Proyecto 6 - 2048 Game -->
+<div class="project-card page-transition" data-aos="fade-up" data-aos-delay="600">
+    <div class="project-glow"></div>
+    <div class="project-header">
+        <div class="project-icon">
+            <i class="fas fa-puzzle-piece"></i>
+        </div>
+        <div class="project-links">
+            <a href="https://github.com/JoaquinTonizzo/tp1-programacion3.git" class="project-link" aria-label="Ver código del proyecto">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </div>
+    
+    <div class="project-content">
+        <h3 class="project-title">2048 Game</h3>
+        <p class="project-subtitle">Implementación del Juego 2048 en Java</p>
+        
+        <div class="project-role">
+            <span class="role-badge">Java Developer</span>
+            <span class="role-badge-green">Swing GUI</span>
+        </div>
+        
+        <ul class="project-description">
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Implementación completa del juego 2048 para la materia Programación III (UNGS)</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Interfaz gráfica desarrollada con Swing para una experiencia de juego fluida</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Lógica de movimiento y combinación de números en grilla 4×4</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Sistema de generación aleatoria de números (2 y 4) después de cada movimiento</span>
+            </li>
+            <li>
+                <i class="fas fa-check"></i>
+                <span>Sistema de puntuación y registro de mejores puntajes</span>
+            </li>
+        </ul>
+        
+        <div class="project-tech">
+            <span>Java</span>
+            <span>Swing</span>
+            <span>GUI Development</span>
+            <span>Game Logic</span>
+            <span>OOP</span>
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </section>

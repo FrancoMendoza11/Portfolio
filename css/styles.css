@@ -1053,3 +1053,179 @@ body {
     font-size: 0.75rem; /* Mantiene el texto pequeño para contraste */
     font-weight: 500;
 }
+
+/* Estilos mejorados para el botón hamburguesa */
+#menu-btn {
+    position: relative;
+    z-index: 60;
+}
+
+.hamburger-line {
+    height: 2px !important; /* Aumenté el grosor de 0.5px a 2px */
+    width: 100%;
+    background-color: #374151 !important; /* Color más visible */
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.dark .hamburger-line {
+    background-color: #f3f4f6 !important; /* Color claro para modo oscuro */
+}
+
+/* Estados del botón hamburguesa cuando está activo */
+#menu-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+#menu-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Estilos mejorados para el menú móvil */
+#mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 50;
+}
+
+.dark #mobile-menu {
+    background: rgba(15, 23, 42, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#mobile-menu:not(.hidden) {
+    max-height: 400px;
+}
+
+#mobile-menu .flex {
+    padding: 1.5rem 1.5rem;
+}
+
+#mobile-menu a {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.dark #mobile-menu a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#mobile-menu a:last-of-type {
+    border-bottom: none;
+}
+
+#mobile-menu a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* Divisor mejorado */
+#mobile-menu .border-t {
+    margin: 1rem 0;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.dark #mobile-menu .border-t {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Controles de tema e idioma mejorados */
+#mobile-menu .flex.items-center.justify-between {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark #mobile-menu .flex.items-center.justify-between {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#mobile-menu .flex.items-center.justify-between:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#language-toggle-mobile,
+#theme-toggle-mobile {
+    min-width: 80px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.dark #language-toggle-mobile,
+.dark #theme-toggle-mobile {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#language-toggle-mobile:hover,
+#theme-toggle-mobile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark #language-toggle-mobile:hover,
+.dark #theme-toggle-mobile:hover {
+    box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
+}
+
+/* Texto de etiquetas en menú móvil */
+#mobile-menu .text-sm.font-medium {
+    font-size: 0.9rem;
+    color: #4b5563;
+}
+
+.dark #mobile-menu .text-sm.font-medium {
+    color: #d1d5db;
+}
+
+/* ===== CORRECCIONES PARA EL SUBTÍTULO EN MÓVIL ===== */
+
+/* Quitar animación typewriter en móvil */
+@media (max-width: 768px) {
+    .typewriter {
+        white-space: normal;
+        border-right: none;
+        animation: none;
+        overflow: visible;
+    }
+    
+    /* Asegurar que el texto sea legible */
+    #hero h2 {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+    
+    /* Ajustar el contenedor del héroe */
+    #hero .container {
+        padding-top: 2rem;
+    }
+}
+
+/* Opcional: Mejorar la animación typewriter en desktop */
+@media (min-width: 769px) {
+    .typewriter {
+        animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+}
